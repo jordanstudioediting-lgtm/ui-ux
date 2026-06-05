@@ -1,0 +1,58 @@
+BAB I
+1.1 Latar Belakang
+"Berbeda dengan MAP yang menekankan pada transaksi B2C" 
+
+seberapa yakin kamu tentang hal ini, apakah kamu mencobanya langsung atau ada penjelasan website yang bisa dilakukan oleh MAP, siapa tau akun agen punya fitur yang sama untuk pantau stok di pangkalan yang bermitra dengannya? Aku sendiri tidak bisa akses aplikasinya dan tidak memungkinkan untuk pergi ke agen/pangkalan untuk tanya tanya aplikasinya. 
+
+1.3 Tujuan Penelitian
+"Memberikan alternatif rancangan visual berbasis tema gelap (dark mode) yang sesuai dengan karakter pengguna pemilik Pangkalan yang umumnya beroperasi dari pagi hingga malam."
+
+ Aku gamau di tekankan dark mode dan kayaknya pangkalan beroprasi tergantung pemilik pangkalannya. 
+
+
+1.5 Batasan Masalah
+
+"Tiga varian produk. Aplikasi dirancang untuk mengelola tiga varian gas: LPG 3 kg (subsidi), Bright Gas 5.5 kg, dan LPG 12 kg. Varian lain di luar tiga jenis tersebut tidak dimasukkan dalam scope." 
+
+Sebenarnya tergantung pangakalan gasnya jual apa saja sih, jadi yang ada disini cuma contoh saja kalo punya beberapa varian, karena ada juga yang pangakalan khusus lpg 3kg saja.
+
+"Asumsi kondisi tabung pada transaksi. Pada transaksi "Pelanggan Beli Tabung" dan "Pelanggan Jual Tabung", kondisi tabung (isi atau kosong) akan ditangani melalui pilihan radio button yang ditambahkan pada halaman Transaksi Baru sebagai pengembangan minor dari rancangan saat ini." 
+
+Kenapa ini jadi batasan masalah, kenapa tidak langsung saja dijelaskan sebagai fitur yang ada di bab ii/iii?
+
+=======
+BAB 2
+
+2.2.1 Visibility of System Status
+"c. Indikator status transaksi (titik berwarna hijau untuk "Selesai", merah/oranye untuk "Pending") pada tabel transaksi terkini."
+
+2.6.3 Posisi GasTrack dalam Rantai Distribusi
+"...sehingga GasTrack tidak menggantikan MAP melainkan melengkapinya pada area yang berbeda."
+
+Aku masih kurang yakin karena kamu pastinya tidak bisa akses langsung ke aplikasi MAP nya untuk pastikan dan review atau penjelasan masing masing akun di MAP bisa ngapain aja tidak ada dokumentasinya di internet(coba cari apakah ada?)
+
+====
+Bab 3
+3.2.1 Acceptance Criteria — Dashboard Pangkalan
+Tabel 3.3 Acceptance Criteria Pada Dashboard Pangkalan
+AC-01,02 : Banner Peringatan Stok
+AC-03 : "kayaknya 'Pesan Sekarang' aku ganti 'Kirim Nofitikasi' aja gak yah, atau saya hilangkan saja yah karena sebenarnya kan agen sudah pasti bisa lihat stok tabung dari setiap pangkalannya, dan yang memutuskan untuk kirim itu dari agen yang pasti datang setiap hari/stoknya habis/sudah mau habis. pengaruh juga ke FS nya yah.
+
+3.5 User Interface Riwayat Transaksi
+3.5.1 Acceptance Criteria — Riwayat Transaksi
+Tabel 3.9 Acceptance Criteria Pada Riwayat Transaksi
+
+AC-02 : kayaknya Filter Jenis Transaksi aku ubah jadi Tipe Transaksi aja yah, karena di table tidak ada jenis transaksi. 
+
+
+====
+Lupa ku bilang :
+3.4 User Interface Transaksi Baru
+Simpan Transaksi nantinya form cash atau transfer mirip kayak di manajemen kiriman, bedanya disini tidak ada kirim foto bukti nya karena pelanggan tidak dibuatkan aku dan hanya untuk mengetahui cash atau transfer.
+
+
+
+Alasan buat berbasis web, agar bisa interaktif dengan seluruh device bisa di mobile,tablet, dan pc. Tapi yang dicontohkan disini adalah untuk pc, karena jujur dari sisi kami lebih mudah dibuat tapi sebenarnya lebih bagus buat contoh halamannya langsung untuk mobile karena ribet kalo pake pc untuk pangkalan, ini harus dijadikan batasan masalah kayaknya tapi gimana framing nya yah aku sudah terlanjur buat untuk pc.
+
+Butuh Penjelasan : 
+Stok Gas Melon (LPG 3kg)
