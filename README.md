@@ -130,6 +130,174 @@ Gas Liquefied Petroleum Gas (LPG) merupakan kebutuhan pokok masyarakat Indonesia
 
 Sejak Februari 2025, pemerintah melakukan penataan ulang rantai pasok LPG 3 kg dengan menambahkan satu tingkatan baru, yaitu Sub-Pangkalan, yang sebelumnya berstatus pengecer atau warung. Tujuan dari penataan ini adalah untuk memastikan subsidi tepat sasaran dan distribusi LPG lebih terstruktur (Tempo, 2025). Skala industri ini sangat besar; sebagai gambaran, di wilayah Banten, Jawa Barat, dan Jakarta saja terdapat lebih dari 47.495 pangkalan LPG bersubsidi yang dikelola oleh Pertamina Patra Niaga (Tempo, 2024).
 
+Untuk mendukung digitalisasi proses transaksi di level Pangkalan, Pertamina telah meluncurkan aplikasi **Merchant Apps Pangkalan (MAP) / MyPertamina Merchant** yang wajib digunakan oleh seluruh Pangkalan resmi sejak tahun 2024. Berdasarkan dokumentasi resmi MAP pada Google Play Store dan situs `merchant.mypertamina.id`, fitur-fitur utama yang tersedia mencakup pencatatan transaksi konsumen akhir menggunakan Nomor Induk Kependudukan (NIK), Product Stock Management, Online Order Management, Sales Reports and History, Customer Management, serta role internal Pangkalan (owner, admin, cashier). Selain MAP, terdapat pula aplikasi **BRIMOLA** dari Bank BRI yang menangani aspek pemesanan dan pembayaran finansial dari Pangkalan kepada Agen, serta sistem **SIMELON** sebagai backend Pertamina untuk pengelolaan alokasi kuota ke Agen (BRI, 2024). Keberadaan ketiga sistem ini merupakan langkah besar bagi digitalisasi sektor distribusi LPG di Indonesia.
+
+Berdasarkan informasi publik yang tersedia (dokumentasi PlayStore, situs resmi MAP, dan pemberitaan media), aplikasi MAP berfokus pada operasional internal masing-masing Pangkalan dan transaksi dengan konsumen akhir. Belum ditemukan dokumentasi publik mengenai fitur dashboard agregat bagi Agen untuk memantau kondisi stok seluruh Pangkalan mitranya secara real-time melalui MAP. Aspek B2B Agen-Pangkalan yang sudah terdigitalisasi lebih banyak berorientasi pada aspek finansial (pemesanan + pembayaran via BRIMOLA) dan alokasi kuota (via SIMELON). Sementara itu, koordinasi operasional yang menyangkut **sinkronisasi stok real-time** dan **manajemen restok berbasis kondisi stok aktual di Pangkalan** masih berpotensi untuk dieksplorasi lebih lanjut. Pada praktik di lapangan, Agen sering mengirimkan tabung gas ke Pangkalan berdasarkan jadwal rutin, panggilan telepon dari pemilik Pangkalan, atau perkiraan dari pengalaman supir, tanpa visibilitas yang akurat terhadap kondisi stok terkini di setiap Pangkalan mitranya. Akibatnya, dapat terjadi dua skenario tidak efisien: (1) Pangkalan mengalami kehabisan stok sebelum jadwal kiriman berikutnya tiba, atau (2) Agen mengirim tabung secara berlebihan ke Pangkalan yang stoknya masih cukup.
+
+Berangkat dari celah tersebut, tim merancang aplikasi **GasTrack** sebagai **eksplorasi rancangan UI/UX** untuk sistem informasi internal yang menghubungkan satu Agen dengan jaringan Pangkalan mitranya, dengan fokus pada **sinkronisasi stok operasional real-time**. GasTrack tidak diposisikan sebagai pengganti aplikasi resmi yang sudah ada, melainkan sebagai studi akademis yang mengeksplorasi area yang masih dapat dikembangkan: koordinasi operasional B2B Agen-Pangkalan dengan fokus stok dan restok, sebagai pelengkap dari MAP (yang menangani aspek transaksi konsumen) dan BRIMOLA (yang menangani aspek finansial). Dengan GasTrack, setiap transaksi penjualan yang terjadi di Pangkalan secara otomatis mengurangi catatan stok yang juga dapat dipantau oleh Agen, sehingga keputusan restok dapat dilakukan berdasarkan data nyata, bukan perkiraan.
+
+Penelitian ini berfokus pada perancangan UI/UX (User Interface dan User Experience) aplikasi GasTrack untuk modul Pangkalan. Pemilihan modul Pangkalan sebagai fokus disebabkan karena Pangkalan merupakan titik di mana seluruh transaksi operasional terjadi dan menjadi sumber data utama yang akan dimanfaatkan oleh modul Agen. Perancangan yang baik pada modul Pangkalan akan menjadi fondasi keberhasilan keseluruhan sistem GasTrack.
+
+## 1.2 Rumusan Masalah
+
+Berdasarkan latar belakang yang telah diuraikan, tim merumuskan beberapa permasalahan sebagai berikut:
+
+1. Bagaimana merancang antarmuka pengguna (User Interface) aplikasi GasTrack untuk modul Pangkalan yang memudahkan pemilik Pangkalan dalam mencatat transaksi jual beli LPG kepada konsumen akhir?
+2. Bagaimana merancang pengalaman pengguna (User Experience) yang memungkinkan pemilik Pangkalan memantau kondisi stok tabung secara real-time dengan informasi yang jelas dan tindak lanjut yang cepat?
+3. Bagaimana merancang antarmuka manajemen kiriman (restok) dari Agen ke Pangkalan sehingga proses penerimaan tabung dan penyelesaian pembayaran dapat dijalankan secara digital dan terdokumentasi?
+4. Bagaimana menyusun rancangan UI/UX yang konsisten secara visual dan fungsional di seluruh halaman aplikasi sehingga dapat dipahami oleh pengguna dengan latar belakang non-teknis?
+
+## 1.3 Tujuan Penelitian
+
+Penelitian ini bertujuan untuk:
+
+1. Menghasilkan rancangan UI/UX aplikasi GasTrack pada modul Pangkalan yang mencakup tujuh halaman utama: Form Login, Dashboard Pangkalan, Manajemen Stok, Transaksi Baru, Riwayat Transaksi, Manajemen Kiriman, dan Laporan Keuangan.
+2. Menyusun spesifikasi fungsional dan acceptance criteria untuk setiap halaman sebagai panduan implementasi pengembangan aplikasi.
+3. Memetakan struktur data dan relasi entitas yang mendukung alur transaksi, stok, dan kiriman pada aplikasi GasTrack.
+4. Menerapkan prinsip-prinsip dasar UI/UX (antara lain Visibility of System Status, Recognition over Recall, dan Konsistensi) pada rancangan setiap halaman aplikasi GasTrack, sehingga aplikasi dapat dipahami dan dioperasikan oleh pengguna dengan latar belakang non-teknis tanpa pelatihan yang ekstensif.
+
+## 1.4 Manfaat Penelitian
+
+Penelitian ini diharapkan memberikan manfaat sebagai berikut:
+
+**Manfaat Akademis:**
+
+1. Memberikan studi kasus konkret penerapan prinsip UI/UX Design dan User-Centered Design pada konteks distribusi energi bersubsidi di Indonesia.
+2. Menjadi referensi bagi penelitian lanjutan tentang perancangan sistem informasi internal pada rantai distribusi B2B.
+
+**Manfaat Praktis:**
+
+1. Memberikan blueprint rancangan UI/UX yang dapat dikembangkan lebih lanjut menjadi aplikasi fungsional oleh Agen LPG atau pihak ketiga yang ingin membantu efisiensi distribusi LPG kepada Pangkalan mitranya.
+2. Membantu pemilik Pangkalan memvisualisasikan bagaimana proses kerja harian mereka dapat didigitalisasi tanpa harus tergantung pada catatan manual atau komunikasi verbal dengan Agen.
+
+## 1.5 Batasan Masalah
+
+Untuk menjaga fokus penelitian, tim menetapkan batasan-batasan berikut:
+
+1. **Scope antarmuka.** Perancangan UI/UX hanya mencakup modul Pangkalan. Modul Agen dan modul pihak lain dalam rantai distribusi LPG (SPBE, Sub-Pangkalan, Konsumen) tidak dirancang dalam penelitian ini.
+2. **Tingkat fidelitas.** Hasil rancangan berupa **mid-fidelity mockup statis** menggunakan perangkat lunak draw.io. Rancangan tidak dibuat dalam bentuk prototype interaktif maupun aplikasi fungsional.
+3. **Pemilihan tool.** Penggunaan draw.io ditetapkan oleh dosen pengampu sebagai bagian dari ketentuan tugas kelompok, di mana setiap kelompok menggunakan perangkat lunak desain yang berbeda.
+4. **Multi-device dan demonstrasi pada tampilan desktop.** Aplikasi GasTrack diniatkan sebagai aplikasi berbasis web yang dapat diakses lintas-device (PC, tablet, dan mobile) sehingga lebih fleksibel digunakan oleh pemilik Pangkalan dengan beragam perangkat. Pada paper ini, demonstrasi rancangan UI ditampilkan dalam orientasi **tampilan desktop/PC** untuk memudahkan visualisasi seluruh komponen secara komprehensif dalam satu layar. Penyesuaian tampilan responsive untuk perangkat mobile dan tablet menjadi bagian dari pengembangan ke depan.
+5. **Asumsi varian produk.** Rancangan UI menampilkan tiga varian gas sebagai contoh: LPG 3 kg (subsidi), Bright Gas 5.5 kg, dan LPG 12 kg. Pada implementasi aktual, jumlah dan jenis varian yang dikelola dapat bervariasi tergantung kebijakan masing-masing Pangkalan — sebagian Pangkalan hanya mengelola LPG 3 kg, sebagian lagi mengelola berbagai varian. Sistem dirancang fleksibel untuk mengakomodasi konfigurasi ini.
+6. **Asumsi pengaturan harga.** Diasumsikan bahwa Pangkalan dapat mengatur harga jual default secara mandiri, dengan harga dasar yang diberikan oleh Agen. Fitur pengaturan harga ini telah dirancang dalam bentuk drawer "Atur Harga Default" pada halaman Transaksi Baru.
+7. **Data dummy.** Seluruh nilai angka, nama pelanggan, nama Agen, ID transaksi, dan ID invoice yang ditampilkan pada rancangan UI merupakan data dummy yang dibuat untuk keperluan demonstrasi visual dan tidak mencerminkan data aktual.
+
+---
+
+# BAB II  
+# LANDASAN TEORI
+
+## 2.1 Konsep UI/UX Design
+
+User Interface (UI) dan User Experience (UX) merupakan dua konsep yang saling berkaitan namun memiliki cakupan yang berbeda. **User Interface** secara harfiah berarti "antarmuka pengguna", yaitu titik temu antara pengguna dengan sebuah sistem digital. UI mencakup seluruh elemen visual dan interaktif yang dilihat dan dimanipulasi oleh pengguna, antara lain tata letak (layout), warna, tipografi, ikon, tombol, formulir, dan komponen visual lainnya (Galitz, 2007).
+
+**User Experience**, di sisi lain, merupakan konsep yang lebih luas dan menyentuh keseluruhan pengalaman pengguna ketika berinteraksi dengan sebuah produk atau sistem. Norman dan Nielsen (2016) menyatakan bahwa UX mencakup semua aspek interaksi pengguna akhir dengan perusahaan, layanan, dan produknya. UX tidak hanya tentang apa yang dilihat pengguna, tetapi juga tentang bagaimana perasaan pengguna sebelum, selama, dan setelah berinteraksi dengan sistem — apakah pengguna merasa puas, terbantu, frustrasi, atau bingung.
+
+Garrett (2010) memetakan elemen UX ke dalam lima lapisan dari yang paling abstrak hingga paling konkret, yaitu Strategy, Scope, Structure, Skeleton, dan Surface. UI menempati lapisan Surface (permukaan visual), sementara UX mencakup keseluruhan lima lapisan tersebut. Oleh karena itu dapat disimpulkan bahwa **UI adalah bagian dari UX**, dan UI yang baik adalah salah satu syarat (namun bukan satu-satunya) bagi terciptanya UX yang baik.
+
+Dalam konteks perancangan aplikasi GasTrack, pendekatan UI/UX dilakukan secara terintegrasi: keputusan visual (UI) seperti pemilihan tema warna gelap dengan aksen hijau, ukuran tombol yang besar, dan tata letak sidebar yang konsisten, diambil berdasarkan pertimbangan pengalaman pengguna (UX) — yaitu pemilik Pangkalan yang sering bekerja di kondisi pencahayaan beragam, memerlukan eksekusi transaksi yang cepat, dan tidak memiliki latar belakang teknis yang tinggi.
+
+### Perbedaan Utama UI dan UX
+
+| Aspek | User Interface (UI) | User Experience (UX) |
+|---|---|---|
+| Fokus | Tampilan visual dan elemen interaktif | Keseluruhan pengalaman dan kepuasan pengguna |
+| Cakupan | Pixel, warna, tipografi, layout, komponen | Strategi produk, arsitektur informasi, alur kerja, emosi |
+| Pertanyaan kunci | "Apakah ini terlihat baik dan mudah digunakan?" | "Apakah pengguna mencapai tujuannya dengan mudah dan puas?" |
+| Output | Mockup, design system, gaya visual | User journey, persona, wireframe, hasil usability testing |
+| Profesi | UI Designer | UX Designer, UX Researcher |
+
+## 2.2 Prinsip Desain Antarmuka Pengguna
+
+Untuk menghasilkan antarmuka yang baik, terdapat sejumlah prinsip dasar yang umum digunakan oleh perancang UI/UX. Tim menerapkan tiga prinsip utama yang relevan dengan konteks aplikasi GasTrack, yaitu Visibility of System Status, Recognition over Recall, dan Konsistensi.
+
+### 2.2.1 Visibility of System Status
+
+Prinsip ini merupakan salah satu dari sepuluh heuristik usabilitas yang dirumuskan oleh Nielsen (1994). Prinsip ini menyatakan bahwa sistem harus selalu memberi tahu pengguna tentang apa yang sedang terjadi melalui umpan balik yang sesuai dalam waktu yang wajar. Pengguna tidak boleh dibiarkan menebak-nebak status dari sistem.
+
+Dalam aplikasi GasTrack, prinsip ini diimplementasikan melalui beberapa elemen visual, antara lain:
+
+a. **Badge status stok** ("Aman", "Menipis", "Kritis") pada setiap kartu varian gas di halaman Manajemen Stok, sehingga pemilik Pangkalan langsung mengetahui kondisi stok tanpa harus menghitung manual.
+
+b. **Banner peringatan stok kritis** pada Dashboard Pangkalan yang muncul ketika salah satu varian gas berada di bawah ambang batas tertentu, dengan teks yang menginformasikan bahwa sistem telah memberi notifikasi otomatis ke Agen mitra.
+
+c. **Badge status kiriman** ("Dijadwalkan", "Diterima", "Lunas") yang berwarna sesuai tahapan pada halaman Manajemen Kiriman, sehingga pemilik Pangkalan dapat melihat sekilas tahapan setiap kiriman yang sedang berjalan.
+
+d. **Progress bar berwarna** yang menunjukkan persentase ketersediaan stok secara cepat dan intuitif.
+
+### 2.2.2 Recognition over Recall
+
+Prinsip ini juga termasuk dalam sepuluh heuristik Nielsen (1994). Prinsip ini menyarankan agar perancang meminimalkan beban memori pengguna dengan membuat objek, aksi, dan opsi terlihat (visible) sehingga pengguna cukup mengenali (recognize) daripada mengingat (recall) dari memori.
+
+Penerapan dalam GasTrack mencakup:
+
+a. **Penggunaan ikon yang konsisten** di sidebar navigasi (ikon dashboard, ikon transaksi, ikon kiriman, dan lain-lain), dilengkapi dengan label teks sehingga pengguna mengenali fungsi dari ikon tersebut.
+
+b. **Pemilihan tipe transaksi berbentuk kartu visual** (Isi Ulang, Pelanggan Beli Tabung, Pelanggan Jual Tabung) pada halaman Transaksi Baru, yang memungkinkan pengguna langsung mengenali pilihan tanpa harus mengingat istilah teknis.
+
+c. **Penggunaan warna kategorial yang konsisten** untuk membedakan varian produk: hijau untuk LPG 3 kg, biru untuk LPG 12 kg, dan merah muda untuk Bright Gas 5.5 kg. Pengguna mengenali varian dari warna badge dan progress bar sebelum membaca teksnya.
+
+### 2.2.3 Konsistensi
+
+Konsistensi dalam desain antarmuka berarti bahwa elemen visual dan pola interaksi yang sama harus berperilaku dan tampil dengan cara yang sama di seluruh sistem (Shneiderman et al., 2016). Konsistensi membantu pengguna mempelajari sistem lebih cepat karena ekspektasi mereka terhadap antarmuka tidak berubah-ubah.
+
+Dalam GasTrack, konsistensi diwujudkan melalui:
+
+a. **Sidebar navigasi yang identik** di seluruh halaman utama, dengan posisi dan komposisi menu yang sama.
+
+b. **Palet warna global** yang digunakan di seluruh aplikasi, termasuk warna primer (hijau aksen), warna latar (dark grey/black), warna teks (putih dan abu), serta warna status (hijau untuk sukses, kuning/oranye untuk perhatian, merah untuk kritis).
+
+c. **Pola tata letak kartu (card)** dengan ukuran sudut membulat (border-radius) dan padding internal yang seragam.
+
+d. **Format penulisan ID transaksi** yang konsisten (`#TRX-XXXX`) dan ID invoice (`INV/GT/YYYY/XXXX`).
+
+## 2.3 User-Centered Design (UCD)
+
+User-Centered Design (UCD) adalah suatu pendekatan perancangan yang menempatkan pengguna akhir sebagai fokus utama dalam setiap tahapan pengembangan pro
+```
+Gambar 3.1   Form Login ......................................... 24
+Gambar 3.2   Dashboard Pangkalan ................................ 28
+Gambar 3.3   Manajemen Stok ..................................... 33
+Gambar 3.4   Transaksi Baru ..................................... 38
+Gambar 3.5   Riwayat Transaksi .................................. 44
+Gambar 3.6   Manajemen Kiriman .................................. 48
+Gambar 3.7   Laporan Keuangan ................................... 52
+Gambar 3.8   Entity Relationship Diagram (ERD) GasTrack ......... 58
+```
+
+---
+
+# DAFTAR TABEL
+
+```
+Tabel 3.1    Acceptance Criteria Pada Form Login ................ 25
+Tabel 3.2    Function Specification Pada Form Login ............. 27
+Tabel 3.3    Acceptance Criteria Pada Dashboard Pangkalan ....... 30
+Tabel 3.4    Function Specification Pada Dashboard Pangkalan .... 32
+Tabel 3.5    Acceptance Criteria Pada Manajemen Stok ............ 35
+Tabel 3.6    Function Specification Pada Manajemen Stok ......... 37
+Tabel 3.7    Acceptance Criteria Pada Transaksi Baru ............ 40
+Tabel 3.8    Function Specification Pada Transaksi Baru ......... 42
+Tabel 3.9    Acceptance Criteria Pada Riwayat Transaksi ......... 45
+Tabel 3.10   Function Specification Pada Riwayat Transaksi ...... 47
+Tabel 3.11   Acceptance Criteria Pada Manajemen Kiriman ......... 49
+Tabel 3.12   Function Specification Pada Manajemen Kiriman ...... 51
+Tabel 3.13   Acceptance Criteria Pada Laporan Keuangan .......... 53
+Tabel 3.14   Function Specification Pada Laporan Keuangan ....... 55
+Tabel 3.15   Daftar Entitas dan Atribut Sistem GasTrack ......... 56
+```
+
+---
+
+# BAB I  
+# PENDAHULUAN
+
+## 1.1 Latar Belakang
+
+Gas Liquefied Petroleum Gas (LPG) merupakan kebutuhan pokok masyarakat Indonesia, baik untuk rumah tangga maupun pelaku Usaha Mikro, Kecil, dan Menengah (UMKM). Pemerintah melalui PT Pertamina (Persero) menyalurkan LPG, khususnya LPG bersubsidi 3 kg (yang dikenal masyarakat dengan sebutan "gas melon"), melalui rantai distribusi berjenjang yang dimulai dari Stasiun Pengisian Bulk Elpiji (SPBE), kemudian disalurkan ke Agen LPG, lalu diteruskan ke Pangkalan resmi, dan akhirnya sampai ke konsumen akhir atau ke pengecer/sub-pangkalan (Kementerian ESDM, 2025).
+
+Sejak Februari 2025, pemerintah melakukan penataan ulang rantai pasok LPG 3 kg dengan menambahkan satu tingkatan baru, yaitu Sub-Pangkalan, yang sebelumnya berstatus pengecer atau warung. Tujuan dari penataan ini adalah untuk memastikan subsidi tepat sasaran dan distribusi LPG lebih terstruktur (Tempo, 2025). Skala industri ini sangat besar; sebagai gambaran, di wilayah Banten, Jawa Barat, dan Jakarta saja terdapat lebih dari 47.495 pangkalan LPG bersubsidi yang dikelola oleh Pertamina Patra Niaga (Tempo, 2024).
+
 Untuk mendukung digitalisasi proses transaksi di level Pangkalan, Pertamina telah meluncurkan aplikasi **Merchant Apps Pangkalan (MAP) / MyPertamina Merchant** yang wajib digunakan oleh seluruh Pangkalan resmi sejak tahun 2024. Aplikasi tersebut berfokus pada pencatatan transaksi konsumen akhir menggunakan Nomor Induk Kependudukan (NIK), monitoring stok yang terkait dengan kuota subsidi, serta pelaporan penjualan kepada Pertamina (PT Pertamina, 2024). Keberadaan MAP merupakan langkah besar bagi digitalisasi sektor distribusi LPG di Indonesia.
 
 Namun, berdasarkan pengamatan dan analisis tim terhadap praktik distribusi di lapangan, ditemukan bahwa MAP memiliki fokus utama pada hubungan **business-to-consumer (B2C)** antara Pangkalan dengan konsumen akhir, terutama untuk keperluan verifikasi penerima subsidi. Sementara itu, koordinasi **business-to-business (B2B)** antara Agen dengan Pangkalan-pangkalan mitranya — khususnya dalam aspek **restok tabung dan sinkronisasi stok real-time** — masih dijalankan secara semi-manual. Agen umumnya mengirimkan tabung gas ke Pangkalan berdasarkan jadwal rutin, panggilan telepon dari pemilik Pangkalan, atau perkiraan dari pengalaman supir, tanpa memiliki visibilitas yang akurat terhadap kondisi stok terkini di setiap Pangkalan mitranya. Akibatnya, sering terjadi dua skenario tidak efisien: (1) Pangkalan mengalami kehabisan stok sebelum jadwal kiriman berikutnya tiba, atau (2) Agen mengirim tabung secara berlebihan ke Pangkalan yang stoknya masih cukup.
