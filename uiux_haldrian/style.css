@@ -1,0 +1,97 @@
+/* Mengambil font bergaya pixel/retro agar mirip Minecraft */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: #262626; /* Warna gelap khas background menu */
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Efek tekstur kotak */
+    font-family: 'Press Start 2P', monospace;
+    color: #ffffff;
+    margin: 40px;
+    font-size: 12px;
+    text-shadow: 2px 2px 0px #000; /* Efek shadow teks khas Minecraft */
+}
+
+h2 {
+    color: #ffff55; /* Warna kuning teks Minecraft */
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* Styling Tabel ala Inventori Minecraft */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #8c8c8c;
+    border: 4px solid #373737;
+    box-shadow: inset -4px -4px 0px #555555, inset 4px 4px 0px #dbdbdb;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #4a4a4a;
+    color: #ffffff;
+    padding: 15px;
+    border: 2px solid #373737;
+}
+
+td {
+    padding: 15px;
+    border: 2px solid #373737;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+/* Link dan Tombol Utama ala Menu Minecraft */
+a, button {
+    display: inline-block;
+    font-family: 'Press Start 2P', monospace;
+    text-decoration: none;
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    padding: 12px 20px;
+    border: 3px solid #000000;
+    box-shadow: inset -3px -3px 0px #2a2a2a, inset 3px 3px 0px #6e6e6e;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+/* Efek Hover Tombol (Berubah jadi hijau rumput saat diarahkan kursor) */
+a:hover, button:hover {
+    background-color: #5b8731;
+    color: #ffffff;
+    box-shadow: inset -3px -3px 0px #35521e, inset 3px 3px 0px #80b24b;
+}
+
+/* Tombol Hapus/Bahaya (Warna merah TNT) */
+a.btn-hapus:hover {
+    background-color: #b3312c;
+    box-shadow: inset -3px -3px 0px #6d1e1b, inset 3px 3px 0px #e64b44;
+}
+
+/* Styling Form Input */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #4a4a4a;
+    padding: 30px;
+    border: 4px solid #2a2a2a;
+    box-shadow: inset -4px -4px 0px #1a1a1a, inset 4px 4px 0px #7d7d7d;
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 12px;
+    background-color: #000000;
+    border: 2px solid #a0a0a0;
+    color: #00ff00; /* Teks input warna hijau matrix/retro */
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+input[type="text"]:focus {
+    border: 2px solid #ffff55;
+    outline: none;
+}
