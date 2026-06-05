@@ -1,10 +1,31 @@
+hampir semua link tidak dapat dibuka, dan ada yang tidak ada link nya juga di jurnal. kamu bener riset ga sih, bener cari ga sih.
+
+
 1.5 Batasan Masalah
-"Asumsi pengaturan harga. Diasumsikan bahwa Pangkalan dapat mengatur harga jual default secara mandiri, dengan harga dasar yang diberikan oleh Agen. Fitur pengaturan harga ini telah dirancang dalam bentuk drawer "Atur Harga Default" pada halaman Transaksi Baru." isu : kenapa ini jadi batasan masalah? apa masalahnya ? 
+"6. Asumsi pengaturan harga. Diasumsikan bahwa Pangkalan dapat mengatur harga jual default secara mandiri, dengan harga dasar yang diberikan oleh Agen. Fitur pengaturan harga ini telah dirancang dalam bentuk drawer "Atur Harga Default" pada halaman Transaksi Baru."
+isu : {kenapa ini jadi batasan masalah?}
+
+3.1.1 Acceptance Criteria — Form Login
+Tabel 3.1 Acceptance Criteria Pada Form Login
 
 "AC-06	Link Lupa Sandi	Jika	Pengguna mengklik link "Lupa sandi?"
 Sewaktu	Klik link
 Maka	Pengguna diarahkan ke halaman atau modal pemulihan kata sandi"
-isu : dijelaskan nanti ada modal yang ngarahin ke whatsapp agen
+isu : {pengguna(pelanggan) akan diarahkan ke kontak agen/whatsapp}
 
+3.6.1 Acceptance Criteria — Manajemen Kiriman
+Tabel 3.11 Acceptance Criteria Pada Manajemen Kiriman
+"AC-05	Tombol Konfirmasi Pembayaran	Jika	Pengguna telah memilih metode pembayaran (dan mengunggah bukti jika Transfer Bank)
+Sewaktu	Klik tombol Konfirmasi Pembayaran
+Maka	Status kiriman berubah menjadi "Lunas", panel form ditutup, dan muncul notifikasi sukses"
+isu : tolong di perjelas, nanti akan terkirim ke agen bukti transfernya dan agen konfirmasi. (mungkin bisa di tambahkan ke saran nanti , kalo mau di tambahin payment gateway)
 
-saya ingin ditambahkan use case diagarm, sebaiknya masuk ke bab mana yah dan tolong kamu buatkan gambarnya yah.
+===============
+3.6.2 Function Specification — Manajemen Kiriman
+Tabel 3.12 Function Specification Pada Manajemen Kiriman
+"Nama Agen	Text	100	—	No	No	Contoh: "Agen Milyana Sumber""
+isu : {ganti contoh nama agennya}
+
+"Baris Metode	Composite	—	—	No	No	Nama metode + persentase + distribusi visual"
+
+isu : {harusnya ini adalah Metode Pembayaran yang menunjukan persentase tunai dan transfer}
