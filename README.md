@@ -126,15 +126,15 @@ Tabel 3.15   Daftar Entitas dan Atribut Sistem GasTrack ......... 56
 
 ## 1.1 Latar Belakang
 
-Gas Liquefied Petroleum Gas (LPG) merupakan kebutuhan pokok masyarakat Indonesia, baik untuk rumah tangga maupun pelaku Usaha Mikro, Kecil, dan Menengah (UMKM). Pemerintah melalui PT Pertamina (Persero) menyalurkan LPG, khususnya LPG bersubsidi 3 kg (yang dikenal masyarakat dengan sebutan "gas melon"), melalui rantai distribusi berjenjang yang dimulai dari Stasiun Pengisian Bulk Elpiji (SPBE), kemudian disalurkan ke Agen LPG, lalu diteruskan ke Pangkalan resmi, dan akhirnya sampai ke konsumen akhir atau ke pengecer/sub-pangkalan (Kementerian ESDM, 2025).
+Gas Liquefied Petroleum Gas (LPG) merupakan kebutuhan pokok masyarakat Indonesia, baik untuk rumah tangga maupun pelaku Usaha Mikro, Kecil, dan Menengah (UMKM). Pemerintah melalui PT Pertamina (Persero) menyalurkan LPG, khususnya LPG bersubsidi 3 kg (yang dikenal masyarakat dengan sebutan "gas melon"), melalui rantai distribusi berjenjang yang dimulai dari Stasiun Pengisian Bulk Elpiji (SPBE), kemudian disalurkan ke Agen LPG, lalu diteruskan ke Pangkalan resmi, dan akhirnya sampai ke konsumen akhir atau ke pengecer/sub-pangkalan (Tempo, 2025).
 
 Sejak Februari 2025, pemerintah melakukan penataan ulang rantai pasok LPG 3 kg dengan menambahkan satu tingkatan baru, yaitu Sub-Pangkalan, yang sebelumnya berstatus pengecer atau warung. Tujuan dari penataan ini adalah untuk memastikan subsidi tepat sasaran dan distribusi LPG lebih terstruktur (Tempo, 2025). Skala industri ini sangat besar; sebagai gambaran, di wilayah Banten, Jawa Barat, dan Jakarta saja terdapat lebih dari 47.495 pangkalan LPG bersubsidi yang dikelola oleh Pertamina Patra Niaga (Tempo, 2024).
 
-Untuk mendukung digitalisasi proses transaksi di level Pangkalan, Pertamina telah meluncurkan aplikasi **Merchant Apps Pangkalan (MAP) / MyPertamina Merchant** yang wajib digunakan oleh seluruh Pangkalan resmi sejak tahun 2024. Berdasarkan dokumentasi resmi MAP pada Google Play Store dan situs `merchant.mypertamina.id`, fitur-fitur utama yang tersedia mencakup pencatatan transaksi konsumen akhir menggunakan Nomor Induk Kependudukan (NIK), Product Stock Management, Online Order Management, Sales Reports and History, Customer Management, serta role internal Pangkalan (owner, admin, cashier). Selain MAP, terdapat pula aplikasi **BRIMOLA** dari Bank BRI yang menangani aspek pemesanan dan pembayaran finansial dari Pangkalan kepada Agen, serta sistem **SIMELON** sebagai backend Pertamina untuk pengelolaan alokasi kuota ke Agen (BRI, 2024). Keberadaan ketiga sistem ini merupakan langkah besar bagi digitalisasi sektor distribusi LPG di Indonesia.
+Untuk mendukung digitalisasi proses transaksi di level Pangkalan, Pertamina telah meluncurkan aplikasi **Merchant Apps Pangkalan (MAP) / MyPertamina Merchant** yang wajib digunakan oleh seluruh Pangkalan resmi sejak tahun 2024. Berdasarkan dokumentasi resmi MAP pada Google Play Store dan situs `merchant.mypertamina.id`, fitur-fitur utama yang tersedia mencakup pencatatan transaksi konsumen akhir menggunakan Nomor Induk Kependudukan (NIK), Product Stock Management, Online Order Management, Sales Reports and History, Customer Management, serta role internal Pangkalan (owner, admin, cashier) (PT Pertamina, 2024). Selain MAP, terdapat pula aplikasi **BRIMOLA (BRI Monitoring Online LPG)** dari Bank BRI yang berfungsi sebagai sistem terintegrasi pemesanan, monitoring kuota real-time, monitoring status pengiriman, dan pembayaran cashless melalui BRI Virtual Account (BRIVA) antara Pangkalan dan Agen, terhubung dengan sistem **SIMELON** Pertamina yang mengelola alokasi kuota ke Agen (BRI, 2024). Keberadaan sistem-sistem ini merupakan langkah besar bagi digitalisasi sektor distribusi LPG di Indonesia.
 
-Berdasarkan informasi publik yang tersedia (dokumentasi PlayStore, situs resmi MAP, dan pemberitaan media), aplikasi MAP berfokus pada operasional internal masing-masing Pangkalan dan transaksi dengan konsumen akhir. Belum ditemukan dokumentasi publik mengenai fitur dashboard agregat bagi Agen untuk memantau kondisi stok seluruh Pangkalan mitranya secara real-time melalui MAP. Aspek B2B Agen-Pangkalan yang sudah terdigitalisasi lebih banyak berorientasi pada aspek finansial (pemesanan + pembayaran via BRIMOLA) dan alokasi kuota (via SIMELON). Sementara itu, koordinasi operasional yang menyangkut **sinkronisasi stok real-time** dan **manajemen restok berbasis kondisi stok aktual di Pangkalan** masih berpotensi untuk dieksplorasi lebih lanjut. Pada praktik di lapangan, Agen sering mengirimkan tabung gas ke Pangkalan berdasarkan jadwal rutin, panggilan telepon dari pemilik Pangkalan, atau perkiraan dari pengalaman supir, tanpa visibilitas yang akurat terhadap kondisi stok terkini di setiap Pangkalan mitranya. Akibatnya, dapat terjadi dua skenario tidak efisien: (1) Pangkalan mengalami kehabisan stok sebelum jadwal kiriman berikutnya tiba, atau (2) Agen mengirim tabung secara berlebihan ke Pangkalan yang stoknya masih cukup.
+Berdasarkan informasi publik yang tersedia (dokumentasi PlayStore, situs resmi MAP, dokumentasi BRIMOLA, dan pemberitaan media), MAP berfokus pada operasional internal masing-masing Pangkalan dan transaksi dengan konsumen akhir, sementara BRIMOLA fokus pada koordinasi pemesanan, kuota, dan pembayaran finansial antara Pangkalan dan Agen secara nasional dengan kemitraan Bank BRI. Belum ditemukan dokumentasi publik yang menyatakan adanya **sistem internal khusus** untuk satu Agen tertentu yang menampilkan kondisi **stok harian Pangkalan mitranya secara real-time berdasarkan transaksi penjualan ke konsumen**, dan yang tidak bergantung pada Bank BRI sebagai middleman finansial. Pada praktik di lapangan, Agen sering mengirimkan tabung gas ke Pangkalan berdasarkan jadwal rutin, panggilan telepon dari pemilik Pangkalan, atau perkiraan dari pengalaman supir, tanpa visibilitas yang akurat terhadap kondisi stok terkini di setiap Pangkalan mitranya yang berubah-ubah akibat transaksi harian. Akibatnya, dapat terjadi dua skenario tidak efisien: (1) Pangkalan mengalami kehabisan stok sebelum jadwal kiriman berikutnya tiba, atau (2) Agen mengirim tabung secara berlebihan ke Pangkalan yang stoknya masih cukup.
 
-Berangkat dari celah tersebut, tim merancang aplikasi **GasTrack** sebagai **eksplorasi rancangan UI/UX** untuk sistem informasi internal yang menghubungkan satu Agen dengan jaringan Pangkalan mitranya, dengan fokus pada **sinkronisasi stok operasional real-time**. GasTrack tidak diposisikan sebagai pengganti aplikasi resmi yang sudah ada, melainkan sebagai studi akademis yang mengeksplorasi area yang masih dapat dikembangkan: koordinasi operasional B2B Agen-Pangkalan dengan fokus stok dan restok, sebagai pelengkap dari MAP (yang menangani aspek transaksi konsumen) dan BRIMOLA (yang menangani aspek finansial). Dengan GasTrack, setiap transaksi penjualan yang terjadi di Pangkalan secara otomatis mengurangi catatan stok yang juga dapat dipantau oleh Agen, sehingga keputusan restok dapat dilakukan berdasarkan data nyata, bukan perkiraan.
+Berangkat dari celah tersebut, tim merancang aplikasi **GasTrack** sebagai **eksplorasi rancangan UI/UX** untuk sistem informasi internal yang menghubungkan satu Agen dengan jaringan Pangkalan mitranya, dengan fokus pada **sinkronisasi stok operasional harian** berdasarkan setiap transaksi yang terjadi di Pangkalan. GasTrack tidak diposisikan sebagai pengganti aplikasi resmi yang sudah ada, melainkan sebagai studi akademis yang mengeksplorasi area yang masih dapat dikembangkan: rancangan UI/UX untuk sistem internal Agen yang independen dari kemitraan bank nasional dan fokus pada koordinasi operasional B2B Agen-Pangkalan harian. Dengan GasTrack, setiap transaksi penjualan yang terjadi di Pangkalan secara otomatis mengurangi catatan stok yang juga dapat dipantau oleh Agen, sehingga keputusan restok dapat dilakukan berdasarkan data nyata yang real-time, bukan perkiraan.
 
 Penelitian ini berfokus pada perancangan UI/UX (User Interface dan User Experience) aplikasi GasTrack untuk modul Pangkalan. Pemilihan modul Pangkalan sebagai fokus disebabkan karena Pangkalan merupakan titik di mana seluruh transaksi operasional terjadi dan menjadi sumber data utama yang akan dimanfaatkan oleh modul Agen. Perancangan yang baik pada modul Pangkalan akan menjadi fondasi keberhasilan keseluruhan sistem GasTrack.
 
@@ -179,7 +179,7 @@ Untuk menjaga fokus penelitian, tim menetapkan batasan-batasan berikut:
 3. **Pemilihan tool.** Penggunaan draw.io ditetapkan oleh dosen pengampu sebagai bagian dari ketentuan tugas kelompok, di mana setiap kelompok menggunakan perangkat lunak desain yang berbeda.
 4. **Multi-device dan demonstrasi pada tampilan desktop.** Aplikasi GasTrack diniatkan sebagai aplikasi berbasis web yang dapat diakses lintas-device (PC, tablet, dan mobile) sehingga lebih fleksibel digunakan oleh pemilik Pangkalan dengan beragam perangkat. Pada paper ini, demonstrasi rancangan UI ditampilkan dalam orientasi **tampilan desktop/PC** untuk memudahkan visualisasi seluruh komponen secara komprehensif dalam satu layar. Penyesuaian tampilan responsive untuk perangkat mobile dan tablet menjadi bagian dari pengembangan ke depan.
 5. **Asumsi varian produk.** Rancangan UI menampilkan tiga varian gas sebagai contoh: LPG 3 kg (subsidi), Bright Gas 5.5 kg, dan LPG 12 kg. Pada implementasi aktual, jumlah dan jenis varian yang dikelola dapat bervariasi tergantung kebijakan masing-masing Pangkalan — sebagian Pangkalan hanya mengelola LPG 3 kg, sebagian lagi mengelola berbagai varian. Sistem dirancang fleksibel untuk mengakomodasi konfigurasi ini.
-6. **Asumsi pengaturan harga.** Diasumsikan bahwa Pangkalan dapat mengatur harga jual default secara mandiri, dengan harga dasar yang diberikan oleh Agen. Fitur pengaturan harga ini telah dirancang dalam bentuk drawer "Atur Harga Default" pada halaman Transaksi Baru.
+6. **Asumsi pengaturan harga.** Diasumsikan bahwa Pangkalan memiliki kewenangan untuk mengatur harga jual default secara mandiri di atas harga dasar yang diberikan oleh Agen, sepanjang tidak melampaui Harga Eceran Tertinggi (HET) yang ditetapkan pemerintah untuk varian bersubsidi. Sistem tidak melakukan validasi otomatis terhadap HET; kepatuhan terhadap regulasi menjadi tanggung jawab Pangkalan.
 7. **Data dummy.** Seluruh nilai angka, nama pelanggan, nama Agen, ID transaksi, dan ID invoice yang ditampilkan pada rancangan UI merupakan data dummy yang dibuat untuk keperluan demonstrasi visual dan tidak mencerminkan data aktual.
 
 ---
@@ -360,7 +360,7 @@ Aplikasi GasTrack berfokus pada hubungan **Agen ↔ Pangkalan**, yaitu pada segm
 SPBE → Agen ⇄ [GASTRACK] ⇄ Pangkalan → (Sub-Pangkalan) → Konsumen Akhir
 ```
 
-Pada segmen ini, koordinasi restok, monitoring stok, dan penyelesaian pembayaran antara Agen dengan setiap Pangkalan mitranya menjadi fokus utama GasTrack. Berdasarkan informasi publik yang tersedia, aplikasi MAP Pertamina lebih banyak menangani hubungan **Pangkalan ↔ Konsumen** (verifikasi NIK, pencatatan penerima subsidi, transaksi konsumen akhir), sementara aplikasi BRIMOLA dari BRI menangani aspek **finansial dan pemesanan** dari Pangkalan ke Agen (kuota, pembayaran via BRIVA, pendaftaran). Dengan demikian, GasTrack diposisikan sebagai eksplorasi rancangan UI/UX pada area yang masih dapat dikembangkan, yaitu **sinkronisasi stok operasional real-time** dan **manajemen restok berbasis kondisi stok aktual**, sebagai pelengkap dari sistem-sistem yang sudah ada.
+Pada segmen ini, koordinasi restok, monitoring stok, dan penyelesaian pembayaran antara Agen dengan setiap Pangkalan mitranya menjadi fokus utama GasTrack. Berdasarkan informasi publik yang tersedia, aplikasi MAP Pertamina lebih banyak menangani hubungan **Pangkalan ↔ Konsumen** (verifikasi NIK, pencatatan penerima subsidi, transaksi konsumen akhir), sementara aplikasi BRIMOLA dari BRI menangani **koordinasi nasional pemesanan, monitoring kuota, dan pembayaran via BRI Virtual Account** antara Pangkalan dan Agen, yang terhubung dengan sistem SIMELON Pertamina. Dengan demikian, GasTrack diposisikan sebagai eksplorasi rancangan UI/UX pada area yang berbeda, yaitu **sistem internal khusus satu Agen** dengan jaringan Pangkalan mitranya, yang fokus pada **sinkronisasi stok harian akibat transaksi konsumen** dan **manajemen restok berbasis kondisi stok aktual**, tanpa harus bergantung pada Bank BRI sebagai middleman finansial. GasTrack diniatkan sebagai pelengkap, bukan pengganti, dari sistem-sistem nasional yang sudah ada.
 
 ## 2.7 Digitalisasi UMKM dan Sistem Informasi Manajemen Stok
 
@@ -452,7 +452,7 @@ Halaman Form Login merupakan halaman pertama yang muncul ketika pengguna membuka
 |  |  | Maka | Pengguna diarahkan ke halaman Dashboard Pangkalan |
 | AC-06 | Link Lupa Sandi | Jika | Pengguna mengklik link "Lupa sandi?" |
 |  |  | Sewaktu | Klik link |
-|  |  | Maka | Pengguna diarahkan ke halaman atau modal pemulihan kata sandi |
+|  |  | Maka | Pengguna diarahkan ke halaman atau modal yang menampilkan kontak Agen mitra (nomor WhatsApp/telepon Agen) sebagai jalur pemulihan kata sandi, karena akun Pangkalan dibuat dan dikelola oleh Agen |
 | AC-07 | Checkbox Ingat Saya | Jika | Checkbox "Ingat saya" dicentang dan login berhasil |
 |  |  | Sewaktu | Klik tombol Masuk Sekarang |
 |  |  | Maka | Sesi login disimpan dan pengguna tidak perlu login ulang pada kunjungan berikutnya selama sesi belum habis |
@@ -738,6 +738,8 @@ Halaman Riwayat Transaksi menyediakan akses terhadap seluruh transaksi yang pern
 
 Halaman Manajemen Kiriman digunakan oleh pemilik Pangkalan untuk memantau dan mengelola setiap kiriman tabung gas yang dijadwalkan, dalam proses, atau telah selesai dengan Agen mitra. Halaman ini menggunakan tata letak dua kolom: daftar kartu kiriman di sebelah kiri-tengah (lebar mayoritas) dan panel Form Pembayaran di sebelah kanan yang muncul ketika salah satu kartu kiriman dipilih. Pada bagian atas halaman terdapat empat tab filter berbentuk pill: Semua, Dijadwalkan, Diterima, dan Lunas, yang berfungsi untuk memfilter kartu kiriman berdasarkan status. Setiap kartu kiriman menampilkan informasi nama Agen, ID invoice, status (dengan badge berwarna sesuai status), informasi detail jenis tabung, jumlah, jadwal/waktu, total tagihan, dan tombol aksi yang berubah sesuai status (Konfirmasi Terima untuk status Dijadwalkan, Bayar Sekarang untuk status Diterima). Panel Form Pembayaran menyediakan pilihan metode pembayaran (Tunai atau Transfer Bank), detail rekening tujuan transfer, area unggah bukti transfer, dan tombol Konfirmasi Pembayaran untuk menyelesaikan transaksi.
 
+Alur pembayaran berbeda untuk dua metode yang tersedia. Untuk **Tunai (Cash)**, diasumsikan Pangkalan menyerahkan uang tunai langsung kepada supir Agen saat kiriman tiba; klik Konfirmasi Pembayaran berfungsi sebagai pencatatan internal Pangkalan dan langsung mengubah status kiriman menjadi "Lunas". Untuk **Transfer Bank**, Pangkalan mengunggah bukti transfer yang kemudian terkirim ke Agen melalui sistem; status kiriman tetap pada "Diterima" dengan label tambahan "Menunggu verifikasi pembayaran" sampai Agen melakukan verifikasi dan menyetujui di sistem Agen. Setelah Agen menyetujui, status kiriman berubah menjadi "Lunas" secara otomatis.
+
 ### 3.6.1 Acceptance Criteria — Manajemen Kiriman
 
 **Tabel 3.11 Acceptance Criteria Pada Manajemen Kiriman**
@@ -756,9 +758,12 @@ Halaman Manajemen Kiriman digunakan oleh pemilik Pangkalan untuk memantau dan me
 | AC-04 | Pilihan Metode Pembayaran | Jika | Pengguna memilih "Transfer Bank" |
 |  |  | Sewaktu | Klik kartu Transfer Bank |
 |  |  | Maka | Detail rekening bank Agen ditampilkan dan area unggah bukti transfer diaktifkan |
-| AC-05 | Tombol Konfirmasi Pembayaran | Jika | Pengguna telah memilih metode pembayaran (dan mengunggah bukti jika Transfer Bank) |
+| AC-05 | Tombol Konfirmasi Pembayaran (Tunai) | Jika | Pengguna memilih metode pembayaran "Tunai (Cash)" |
 |  |  | Sewaktu | Klik tombol Konfirmasi Pembayaran |
-|  |  | Maka | Status kiriman berubah menjadi "Lunas", panel form ditutup, dan muncul notifikasi sukses |
+|  |  | Maka | Status kiriman langsung berubah menjadi "Lunas" (asumsi Pangkalan menyerahkan uang tunai langsung ke supir Agen saat kiriman tiba; klik tombol hanya pencatatan internal), panel form ditutup, dan muncul notifikasi sukses |
+| AC-06 | Tombol Konfirmasi Pembayaran (Transfer Bank) | Jika | Pengguna memilih metode pembayaran "Transfer Bank" dan telah mengunggah bukti transfer |
+|  |  | Sewaktu | Klik tombol Konfirmasi Pembayaran |
+|  |  | Maka | Bukti transfer terkirim ke sistem Agen untuk diverifikasi. Status kiriman tetap pada "Diterima" dengan label tambahan "Menunggu verifikasi pembayaran" sampai Agen menyetujui. Setelah Agen menyetujui di sistem Agen, status berubah menjadi "Lunas" secara otomatis |
 
 ### 3.6.2 Function Specification — Manajemen Kiriman
 
@@ -782,7 +787,7 @@ Halaman Manajemen Kiriman digunakan oleh pemilik Pangkalan untuk memantau dan me
 | Jumlah Bayar | Currency | — | — | No | Yes | Auto-fill dari Total Tagihan, tidak dapat diubah |  |
 | Detail Rekening Bank | Composite | — | — | Conditional | Yes | Hanya muncul jika metode = Transfer Bank. Berisi nama bank, nomor rekening, atas nama |  |
 | Unggah Bukti Transfer | File | — | Conditional | Conditional | No | Hanya muncul/wajib jika metode = Transfer Bank. Format: JPG, PNG, PDF, maks 5MB | Wajib jika muncul; validasi format & ukuran |
-| Status Konfirmasi | Enum | — | — | No | Yes | Otomatis / Manual |  |
+| Status Konfirmasi Pembayaran | Enum | — | — | No | Yes | Untuk Tunai: langsung "Lunas" setelah klik. Untuk Transfer Bank: "Menunggu Verifikasi Agen" sampai Agen menyetujui di sistem, kemudian berubah menjadi "Disetujui" yang otomatis mengubah status kiriman menjadi "Lunas" |  |
 | Tombol Konfirmasi Pembayaran | Button | — | — | No | Conditional | Disabled jika field wajib belum terisi |  |
 
 ---
@@ -870,7 +875,7 @@ Untuk mendukung seluruh fungsi pada tujuh halaman yang telah dirancang, tim meny
 | **Detail_Transaksi** | `id_detail` (PK), `id_transaksi` (FK), `id_produk` (FK), `tipe_transaksi` (Enum), `kondisi_tabung` (Enum: Isi/Kosong), `jumlah`, `harga_satuan`, `harga_override` (nullable), `subtotal` | Item dalam satu transaksi |
 | **Kiriman** | `id_kiriman` (PK), `id_pangkalan` (FK), `id_agen` (FK), `id_invoice`, `tanggal_dibuat`, `jadwal_keberangkatan`, `waktu_diterima` (nullable), `status` (Enum: Dijadwalkan/Diterima/Lunas), `total_tagihan` | Data kiriman dari Agen ke Pangkalan |
 | **Detail_Kiriman** | `id_detail_kiriman` (PK), `id_kiriman` (FK), `id_produk` (FK), `jumlah_tabung`, `harga_satuan`, `subtotal` | Item dalam satu kiriman |
-| **Pembayaran** | `id_pembayaran` (PK), `id_kiriman` (FK), `metode` (Enum: Tunai/Transfer Bank), `jumlah_bayar`, `bukti_transfer_url` (nullable), `timestamp_konfirmasi`, `status_konfirmasi` (Enum: Otomatis/Manual) | Catatan pembayaran kiriman |
+| **Pembayaran** | `id_pembayaran` (PK), `id_kiriman` (FK), `metode` (Enum: Tunai/Transfer Bank), `jumlah_bayar`, `bukti_transfer_url` (nullable, hanya untuk Transfer Bank), `timestamp_pengajuan`, `status_verifikasi_agen` (Enum: Otomatis Disetujui/Menunggu Verifikasi/Disetujui Agen), `timestamp_verifikasi` (nullable) | Catatan pembayaran kiriman. Untuk Tunai, `status_verifikasi_agen` langsung "Otomatis Disetujui". Untuk Transfer Bank, status awal "Menunggu Verifikasi" hingga Agen melakukan verifikasi melalui sistem Agen |
 
 ### 3.8.2 Entity Relationship Diagram (ERD)
 
@@ -907,7 +912,7 @@ Dengan struktur data dan relasi ini, aplikasi GasTrack mampu menjaga konsistensi
 
 Berdasarkan analisis kebutuhan dan perancangan UI/UX aplikasi GasTrack yang telah dilakukan, dapat ditarik beberapa kesimpulan sebagai berikut:
 
-1. **Posisi GasTrack dalam ekosistem distribusi LPG.** Aplikasi GasTrack diposisikan sebagai eksplorasi rancangan UI/UX untuk sistem internal koordinasi antara Agen dengan jaringan Pangkalan mitranya, dengan fokus pada sinkronisasi stok operasional real-time. Berdasarkan informasi publik yang tersedia, aplikasi resmi yang sudah ada di ekosistem distribusi LPG Indonesia — yaitu MAP / MyPertamina Merchant (untuk operasional Pangkalan dan transaksi dengan konsumen akhir) dan BRIMOLA dari BRI (untuk pemesanan dan pembayaran finansial Pangkalan ke Agen) — belum mendokumentasikan secara publik adanya fitur dashboard agregat yang memungkinkan Agen memantau kondisi stok seluruh Pangkalan mitranya secara real-time. GasTrack dirancang untuk mengeksplorasi area tersebut sebagai pelengkap, bukan pengganti, dari sistem-sistem yang sudah ada.
+1. **Posisi GasTrack dalam ekosistem distribusi LPG.** Aplikasi GasTrack diposisikan sebagai eksplorasi rancangan UI/UX untuk sistem internal koordinasi antara satu Agen dengan jaringan Pangkalan mitranya, dengan fokus pada sinkronisasi stok harian akibat transaksi konsumen. Berdasarkan informasi publik yang tersedia, aplikasi resmi yang sudah ada di ekosistem distribusi LPG Indonesia — yaitu MAP / MyPertamina Merchant (untuk operasional Pangkalan dan transaksi konsumen akhir) dan BRIMOLA dari BRI (untuk koordinasi pemesanan, kuota, dan pembayaran via BRI Virtual Account antara Pangkalan dan Agen) — masing-masing memiliki fokus yang berbeda dari GasTrack. GasTrack dirancang untuk mengeksplorasi area sistem internal khusus satu Agen yang tidak bergantung pada kemitraan bank nasional dan fokus pada operasional harian, sebagai pelengkap, bukan pengganti, dari sistem-sistem yang sudah ada.
 
 2. **Cakupan rancangan.** Tim berhasil menghasilkan rancangan UI/UX untuk tujuh halaman utama pada modul Pangkalan, yaitu Form Login, Dashboard Pangkalan, Manajemen Stok, Transaksi Baru, Riwayat Transaksi, Manajemen Kiriman, dan Laporan Keuangan. Setiap halaman telah dilengkapi dengan deskripsi naratif, acceptance criteria, dan function specification yang dapat digunakan sebagai panduan implementasi.
 
@@ -949,7 +954,7 @@ Beberapa pengembangan yang dapat ditambahkan pada iterasi mendatang aplikasi Gas
 
 7. **Workflow status transaksi yang lebih kaya.** Rancangan saat ini mengasumsikan setiap transaksi langsung selesai pada saat disimpan. Pengembangan dapat menambahkan workflow status transaksi yang lebih kompleks seperti "Dibatalkan", "Refund", atau "Pending Verifikasi" untuk kasus-kasus khusus seperti pelanggan retailer yang transaksinya butuh validasi tambahan.
 
-8. **Bukti transfer pada transaksi pembayaran Transfer Bank.** Apabila di masa depan pelanggan terdaftar dengan akun, fitur upload bukti transfer pada transaksi metode Transfer Bank dapat ditambahkan, mirip dengan mekanisme yang sudah ada di halaman Manajemen Kiriman.
+8. **Integrasi Payment Gateway untuk pembayaran kiriman.** Untuk meningkatkan efisiensi dan mengurangi beban verifikasi manual oleh Agen, integrasi dengan payment gateway (misalnya virtual account, QRIS, atau e-wallet) dapat ditambahkan pada halaman Manajemen Kiriman. Dengan payment gateway, konfirmasi pembayaran dapat dilakukan otomatis tanpa perlu unggah bukti transfer dan verifikasi manual oleh Agen, sehingga waktu transisi dari status "Diterima" ke "Lunas" menjadi lebih singkat dan tidak bergantung pada respons manual Agen.
 
 ---
 
@@ -957,7 +962,7 @@ Beberapa pengembangan yang dapat ditambahkan pada iterasi mendatang aplikasi Gas
 
 Babich, N. (2020). *The UX Design Handbook: Wireframes, Mockups, and Prototypes*. Adobe XD Ideas.
 
-Bank Rakyat Indonesia. (2024). *BRIMOLA — Aplikasi Pemesanan dan Pembayaran LPG untuk Agen dan Pangkalan*. Diakses dari https://brimola.bri.co.id/brimola/faq/faqPso
+Bank Rakyat Indonesia. (2024). *BRIMOLA — Aplikasi Manajemen Online Agen & Pangkalan Gas Elpiji 3 Kg*. Diakses dari https://brimola.bri.co.id/brimola/faq dan https://play.google.com/store/apps/details?id=id.co.bri.brimola
 
 Galitz, W. O. (2007). *The Essential Guide to User Interface Design: An Introduction to GUI Design Principles and Techniques* (3rd ed.). Wiley.
 
@@ -965,35 +970,27 @@ Garrett, J. J. (2010). *The Elements of User Experience: User-Centered Design fo
 
 International Organization for Standardization. (2019). *ISO 9241-210:2019 Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems*. ISO.
 
-Kementerian Energi dan Sumber Daya Mineral. (2025). *KESDM dan Pertamina Sosialisasikan Penataan Rantai Pasok LPG 3 Kg*. Diakses dari https://www.esdm.go.id
-
 Kementerian Koperasi dan Usaha Kecil dan Menengah RI. (2022). *Strategi Nasional Pengembangan Ekonomi Digital UMKM*. Jakarta: KemenKopUKM.
 
-Krug, S. (2014). *Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability* (3rd ed.). New Riders.
-
-Merdeka.com. (2025). *Perbedaan antara Pangkalan dan Agen Gas LPG*. Diakses dari https://www.merdeka.com/uang/perbedaan-antara-pangkalan-dan-agen-gas-lpg
+Merdeka.com. (2025). *Perbedaan antara Pangkalan dan Agen Gas LPG*. Diakses dari https://www.merdeka.com/uang/perbedaan-antara-pangkalan-dan-agen-gas-lpg-314552-mvk.html
 
 Nielsen, J. (1994). *10 Usability Heuristics for User Interface Design*. Nielsen Norman Group. Diakses dari https://www.nngroup.com/articles/ten-usability-heuristics/
 
-Norman, D. A. (2013). *The Design of Everyday Things* (Revised and Expanded ed.). Basic Books.
-
 Norman, D., & Nielsen, J. (2016). *The Definition of User Experience (UX)*. Nielsen Norman Group. Diakses dari https://www.nngroup.com/articles/definition-user-experience/
 
-Portonews. (2025). *Presiden Instruksikan Aktivasi Pengecer LPG 3 Kg, Pertamina Gerak Cepat Pastikan Suplai*. Diakses dari https://www.portonews.com
+Portonews. (2025). *Presiden Instruksikan Aktivasi Pengecer LPG 3 Kg, Pertamina Gerak Cepat Pastikan Suplai*. Diakses dari https://www.portonews.com/2025/energi/presiden-instruksikan-aktivasi-pengecer-lpg-3-kg-pertamina-gerak-cepat-pastikan-suplai/
 
-PT Pertamina (Persero). (2024). *MyPertamina Merchant — Aplikasi di Google Play Store*. Diakses dari https://play.google.com/store/apps/details?id=id.mypertamina.merchant.gits
-
-PT Pertamina (Persero). (2024). *Merchant Apps Pangkalan (MAP) — Sistem Transaksi LPG 3 Kg Subsidi*. Diakses dari https://merchant.mypertamina.id dan https://subsiditepatlpg.mypertamina.id
+PT Pertamina (Persero). (2024). *MyPertamina Merchant — Aplikasi Pencatatan Transaksi LPG 3 Kg untuk Pangkalan*. Diakses dari https://merchant.mypertamina.id dan https://play.google.com/store/apps/details?id=id.mypertamina.merchant.gits
 
 Shneiderman, B., Plaisant, C., Cohen, M., Jacobs, S., Elmqvist, N., & Diakopoulos, N. (2016). *Designing the User Interface: Strategies for Effective Human-Computer Interaction* (6th ed.). Pearson.
 
-Tempo.co. (2024). *47.495 Pangkalan LPG Subsidi Milik Pertamina untuk Layani Banten, Jawa Barat dan Jakarta*. Diakses dari https://www.tempo.co/arsip/47-495-pangkalan-lpg-subsidi-milik-pertamina
+Tempo.co. (2024). *47.495 Pangkalan LPG Subsidi Milik Pertamina untuk Layani Banten, Jawa Barat dan Jakarta*. Bisnis Tempo, 23 September 2024. Diakses dari https://bisnis.tempo.co/read/1919992/47-495-pangkalan-lpg-subsidi-milik-pertamina-untuk-layani-banten-jawa-barat-dan-jakarta
 
-Tempo.co. (2025). *KESDM dan Pertamina Sosialisasikan Penataan Rantai Pasok LPG 3 Kg*. Diakses dari https://www.tempo.co/info-tempo/kesdm-dan-pertamina-sosialisasikan-penataan-rantai-pasok-lpg-3-kg
+Tempo.co. (2025). *KESDM dan Pertamina Sosialisasikan Penataan Rantai Pasok LPG 3 Kg*. Info Tempo, 5 Februari 2025. Diakses dari https://www.tempo.co/info-tempo/kesdm-dan-pertamina-sosialisasikan-penataan-rantai-pasok-lpg-3-kg--1203082
 
-Tirto.id. (2025). *KESDM & Pertamina Sosialisasikan Penataan Rantai Pasok LPG 3 Kg*. Diakses dari https://tirto.id/kesdm-pertamina-sosialisasikan-penataan-rantai-pasok-lpg-3-kg-g7Zn
+Tirto.id. (2025). *KESDM & Pertamina Sosialisasikan Penataan Rantai Pasok LPG 3 Kg*. 5 Februari 2025. Diakses dari https://tirto.id/kesdm-pertamina-sosialisasikan-penataan-rantai-pasok-lpg-3-kg-g7Zn
 
-Tribunnews. (2025). *Syarat dan Cara Daftar Sub Pangkalan Gas LPG 3 Kg Lewat Aplikasi MAP Pertamina*. Diakses dari https://www.tribunnews.com/bisnis/2025/02/05/syarat-dan-cara-daftar-sub-pangkalan-gas-lpg-3-kg-lewat-aplikasi-map-pertamina
+Tribunnews. (2025). *Syarat dan Cara Daftar Sub Pangkalan Gas LPG 3 Kg Lewat Aplikasi MAP Pertamina, Siapkan Data Ini*. 5 Februari 2025. Diakses dari https://www.tribunnews.com/bisnis/2025/02/05/syarat-dan-cara-daftar-sub-pangkalan-gas-lpg-3-kg-lewat-aplikasi-map-pertamina-siapkan-data-ini
 
 ---
 
