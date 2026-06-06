@@ -4,13 +4,12 @@
 
 {Kementerian Koperasi dan Usaha Kecil dan Menengah RI. (2022). Strategi Nasional Pengembangan Ekonomi Digital UMKM. Jakarta: KemenKopUKM. : sumbernya gak jelas},
 
-{Shneiderman, B., Plaisant, C., Cohen, M., Jacobs, S., Elmqvist, N., & Diakopoulos, N. (2016). Designing the User Interface: Strategies for Effective Human-Computer Interaction (6th ed.). Pearson. : bener gak link "https://api.pageplace.de/preview/DT0400.9781292153926_A37747523/preview-9781292153926_A37747523.pdf" adalah buku nya}
+{Shneiderman, B., Plaisant, C., Cohen, M., Jacobs, S., Elmqvist, N., & Diakopoulos, N. (2016). Designing the User Interface: Strategies for Effective Human-Computer Interaction (6th ed.). Pearson. : bener gak link "https://api.pageplace.de/preview/DT0400.9781292153926_A37747523/preview-9781292153926_A37747523.pdf" adalah buku nya},
 
-{International Organization for Standardization. (2019). ISO 9241-210:2019 Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems. ISO. : ini berbayar sepertinya, aku tidak dapat menemukan free pdf nya. gimana kamu bisa tahu teorinya? apakah kamu bisa bantu cari link pdf nya? aku berhasil menemukannya tapi versi 2010 : "https://www.alekvs.com/wp-content/uploads/2025/06/iso-9241-210.pdf"}
+{International Organization for Standardization. (2019). ISO 9241-210:2019 Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems. ISO. : ini berbayar sepertinya, aku tidak dapat menemukan free pdf nya. gimana kamu bisa tahu teorinya? apakah kamu bisa bantu cari link pdf nya? aku berhasil menemukannya tapi versi 2010 : "https://www.alekvs.com/wp-content/uploads/2025/06/iso-9241-210.pdf"},
 
-{Garrett, J. J. (2010). The Elements of User Experience: User-Centered Design for the Web and Beyond (2nd ed.). New Riders.: "ini berbayar sepertinya, aku tidak dapat menemukan free pdf nya. gimana kamu bisa tahu teorinya? apakah kamu bisa bantu cari link pdf nya? "
+{Garrett, J. J. (2010). The Elements of User Experience: User-Centered Design for the Web and Beyond (2nd ed.). New Riders.: "ini berbayar sepertinya, aku tidak dapat menemukan free pdf nya. gimana kamu bisa tahu teorinya? apakah kamu bisa bantu cari link pdf nya? "},
 
-{Galitz, W. O. (2007). The Essential Guide to User Interface Design: An Introduction to GUI Design Principles and Techniques (3rd ed.). Wiley. : apakah link "https://profagaskar.wordpress.com/wp-content/uploads/2020/03/wiley_the_essential_guide_to_user_interf.pdf" benar?}
+{Galitz, W. O. (2007). The Essential Guide to User Interface Design: An Introduction to GUI Design Principles and Techniques (3rd ed.). Wiley. : apakah link "https://profagaskar.wordpress.com/wp-content/uploads/2020/03/wiley_the_essential_guide_to_user_interf.pdf" benar?},
 
-
-
+{Babich, N. (2020). The UX Design Handbook: Wireframes, Mockups, and Prototypes. Adobe XD Ideas.: aku ga ketemu link nya}
