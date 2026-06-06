@@ -65,14 +65,15 @@ BAB II   LANDASAN TEORI ......................................... 10
   2.7    Digitalisasi UMKM dan Sistem Informasi Manajemen Stok . 21
 
 BAB III  PERANCANGAN APLIKASI GASTRACK .......................... 24
-  3.1    User Interface Form Login ............................. 24
-  3.2    User Interface Dashboard Pangkalan .................... 28
-  3.3    User Interface Manajemen Stok ......................... 33
-  3.4    User Interface Transaksi Baru ......................... 38
-  3.5    User Interface Riwayat Transaksi ...................... 44
-  3.6    User Interface Manajemen Kiriman ...................... 48
-  3.7    User Interface Laporan Keuangan ....................... 52
-  3.8    Struktur Data dan Relasi Entitas ...................... 56
+  3.1    Use Case Diagram ...................................... 24
+  3.2    User Interface Form Login ............................. 26
+  3.3    User Interface Dashboard Pangkalan .................... 30
+  3.4    User Interface Manajemen Stok ......................... 35
+  3.5    User Interface Transaksi Baru ......................... 40
+  3.6    User Interface Riwayat Transaksi ...................... 46
+  3.7    User Interface Manajemen Kiriman ...................... 50
+  3.8    User Interface Laporan Keuangan ....................... 54
+  3.9    Struktur Data dan Entity Relationship Diagram (ERD) ... 58
 
 BAB IV   KESIMPULAN, SARAN, DAN PENGEMBANGAN ................... 60
   4.1    Kesimpulan ............................................ 60
@@ -87,14 +88,15 @@ DAFTAR PUSTAKA .................................................. 64
 # DAFTAR GAMBAR
 
 ```
-Gambar 3.1   Form Login ......................................... 24
-Gambar 3.2   Dashboard Pangkalan ................................ 28
-Gambar 3.3   Manajemen Stok ..................................... 33
-Gambar 3.4   Transaksi Baru ..................................... 38
-Gambar 3.5   Riwayat Transaksi .................................. 44
-Gambar 3.6   Manajemen Kiriman .................................. 48
-Gambar 3.7   Laporan Keuangan ................................... 52
-Gambar 3.8   Entity Relationship Diagram (ERD) GasTrack ......... 58
+Gambar 3.1   Use Case Diagram GasTrack Modul Pangkalan .......... 24
+Gambar 3.2   Form Login ......................................... 26
+Gambar 3.3   Dashboard Pangkalan ................................ 30
+Gambar 3.4   Manajemen Stok ..................................... 35
+Gambar 3.5   Transaksi Baru ..................................... 40
+Gambar 3.6   Riwayat Transaksi .................................. 46
+Gambar 3.7   Manajemen Kiriman .................................. 50
+Gambar 3.8   Laporan Keuangan ................................... 54
+Gambar 3.9   Entity Relationship Diagram (ERD) GasTrack ......... 60
 ```
 
 ---
@@ -102,21 +104,22 @@ Gambar 3.8   Entity Relationship Diagram (ERD) GasTrack ......... 58
 # DAFTAR TABEL
 
 ```
-Tabel 3.1    Acceptance Criteria Pada Form Login ................ 25
-Tabel 3.2    Function Specification Pada Form Login ............. 27
-Tabel 3.3    Acceptance Criteria Pada Dashboard Pangkalan ....... 30
-Tabel 3.4    Function Specification Pada Dashboard Pangkalan .... 32
-Tabel 3.5    Acceptance Criteria Pada Manajemen Stok ............ 35
-Tabel 3.6    Function Specification Pada Manajemen Stok ......... 37
-Tabel 3.7    Acceptance Criteria Pada Transaksi Baru ............ 40
-Tabel 3.8    Function Specification Pada Transaksi Baru ......... 42
-Tabel 3.9    Acceptance Criteria Pada Riwayat Transaksi ......... 45
-Tabel 3.10   Function Specification Pada Riwayat Transaksi ...... 47
-Tabel 3.11   Acceptance Criteria Pada Manajemen Kiriman ......... 49
-Tabel 3.12   Function Specification Pada Manajemen Kiriman ...... 51
-Tabel 3.13   Acceptance Criteria Pada Laporan Keuangan .......... 53
-Tabel 3.14   Function Specification Pada Laporan Keuangan ....... 55
-Tabel 3.15   Daftar Entitas dan Atribut Sistem GasTrack ......... 56
+Tabel 3.1    Daftar Use Case Modul Pangkalan .................... 25
+Tabel 3.2    Acceptance Criteria Pada Form Login ................ 27
+Tabel 3.3    Function Specification Pada Form Login ............. 29
+Tabel 3.4    Acceptance Criteria Pada Dashboard Pangkalan ....... 32
+Tabel 3.5    Function Specification Pada Dashboard Pangkalan .... 34
+Tabel 3.6    Acceptance Criteria Pada Manajemen Stok ............ 37
+Tabel 3.7    Function Specification Pada Manajemen Stok ......... 39
+Tabel 3.8    Acceptance Criteria Pada Transaksi Baru ............ 42
+Tabel 3.9    Function Specification Pada Transaksi Baru ......... 44
+Tabel 3.10   Acceptance Criteria Pada Riwayat Transaksi ......... 47
+Tabel 3.11   Function Specification Pada Riwayat Transaksi ...... 49
+Tabel 3.12   Acceptance Criteria Pada Manajemen Kiriman ......... 51
+Tabel 3.13   Function Specification Pada Manajemen Kiriman ...... 53
+Tabel 3.14   Acceptance Criteria Pada Laporan Keuangan .......... 55
+Tabel 3.15   Function Specification Pada Laporan Keuangan ....... 57
+Tabel 3.16   Daftar Entitas dan Atribut Sistem GasTrack ......... 58
 ```
 
 ---
@@ -253,7 +256,7 @@ d. **Format penulisan ID transaksi** yang konsisten (`#TRX-XXXX`) dan ID invoice
 
 ## 2.3 User-Centered Design (UCD)
 
-User-Centered Design (UCD) adalah suatu pendekatan perancangan yang menempatkan pengguna akhir sebagai fokus utama dalam setiap tahapan pengembangan produk. Pendekatan ini diformalkan dalam standar internasional **ISO 9241-210:2019** yang berjudul "Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems" (ISO, 2019).
+User-Centered Design (UCD) adalah suatu pendekatan perancangan yang menempatkan pengguna akhir sebagai fokus utama dalam setiap tahapan pengembangan produk. Pendekatan ini diformalkan dalam standar internasional **ISO 9241-210** yang berjudul "Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems" (ISO, 2010). Versi terbaru standar ini (2019) merupakan pembaruan minor dengan prinsip inti yang konsisten.
 
 UCD menekankan pada empat aktivitas utama yang dilakukan secara iteratif, yaitu:
 
@@ -272,7 +275,7 @@ c. Tidak memiliki latar belakang teknis IT, sehingga terminologi dalam aplikasi 
 
 d. Beroperasi di lingkungan fisik berupa kios atau warung dengan pencahayaan beragam, sehingga tampilan layar harus tetap mudah dibaca baik di kondisi terang maupun redup.
 
-Pemahaman atas konteks pengguna inilah yang melatarbelakangi keputusan rancangan, antara lain pemilihan tema gelap dengan kontras tinggi, ukuran tombol Call-to-Action (CTA) yang besar dan dominan, serta penempatan banner peringatan stok kritis pada posisi paling atas Dashboard agar tidak terlewat.
+Pemahaman atas konteks pengguna inilah yang melatarbelakangi keputusan rancangan, antara lain pemilihan tema gelap dengan kontras tinggi, ukuran tombol Call-to-Action (CTA) yang besar dan dominan, serta penempatan banner peringatan stok kritis pada posisi paling atas Dashboard agar tidak terlewat. Pendekatan UCD telah banyak diterapkan pada perancangan berbagai aplikasi di Indonesia, antara lain aplikasi marketplace bahan makanan dapur dengan hasil pengujian SUS skor 83,5 yang masuk kategori "Excellent" (Sugandi & Isnaini, 2023), serta aplikasi pemasaran spesifik sektor UMKM seperti perikanan di Batam (Novriansyah & Kurniawan, 2022), yang menunjukkan bahwa pelibatan pengguna dalam tahap perancangan secara konsisten menghasilkan antarmuka yang lebih sesuai dengan kebutuhan operasional pengguna sebenarnya.
 
 ## 2.4 Wireframing, Prototyping, dan Mockup
 
@@ -350,7 +353,7 @@ Untuk mengatasi permasalahan pengecer informal dan memastikan subsidi tepat sasa
 SPBE → Agen → Pangkalan → Sub-Pangkalan → Konsumen Akhir
 ```
 
-Sub-Pangkalan wajib mendaftarkan diri melalui aplikasi **Merchant Apps Pangkalan (MAP)** yang dapat diakses melalui situs `merchant.mypertamina.id` atau melalui aplikasi mobile (Tribun, 2025). Penataan ini juga didukung oleh sistem pemantauan digital yang melacak kebutuhan dan suplai harian di berbagai wilayah (Portonews, 2025).
+Sub-Pangkalan wajib mendaftarkan diri melalui aplikasi **Merchant Apps Pangkalan (MAP)** yang dapat diakses melalui situs `merchant.mypertamina.id` atau melalui aplikasi mobile (Tribun, 2025). Penataan ini juga didukung oleh sistem pemantauan digital yang melacak kebutuhan dan suplai harian di berbagai wilayah (Tirto, 2025).
 
 ### 2.6.3 Posisi GasTrack dalam Rantai Distribusi
 
@@ -364,7 +367,7 @@ Pada segmen ini, koordinasi restok, monitoring stok, dan penyelesaian pembayaran
 
 ## 2.7 Digitalisasi UMKM dan Sistem Informasi Manajemen Stok
 
-Pangkalan LPG umumnya merupakan unit usaha yang masuk dalam kategori UMKM. Digitalisasi pada UMKM didefinisikan sebagai proses adopsi teknologi digital — termasuk perangkat lunak, internet, dan layanan cloud — untuk meningkatkan efisiensi operasional, memperluas akses pasar, dan meningkatkan kemampuan pengambilan keputusan berbasis data (Kementerian Koperasi dan UKM RI, 2022).
+Pangkalan LPG umumnya merupakan unit usaha yang masuk dalam kategori UMKM. Digitalisasi pada UMKM didefinisikan sebagai proses adopsi teknologi digital — termasuk perangkat lunak, internet, dan layanan cloud — untuk meningkatkan efisiensi operasional, memperluas akses pasar, dan meningkatkan kemampuan pengambilan keputusan berbasis data (Kementerian Koordinator Bidang Perekonomian RI, 2021).
 
 Salah satu bentuk digitalisasi yang paling berdampak pada UMKM dagang seperti Pangkalan LPG adalah penerapan **Sistem Informasi Manajemen Stok** (Stock Management Information System). Sistem ini berfungsi mencatat seluruh pergerakan barang masuk dan keluar dari gudang/toko, menghitung stok terkini secara otomatis, serta menghasilkan laporan untuk pengambilan keputusan operasional.
 
@@ -380,11 +383,11 @@ c. **Relationship (Relasi)** — keterkaitan antara dua atau lebih entitas, misa
 
 d. **Stok masuk dan stok keluar** — setiap aksi yang mempengaruhi jumlah stok dicatat sebagai pergerakan dengan tipe tertentu (penambahan dari kiriman, pengurangan dari penjualan).
 
-e. **Real-time update** — perubahan stok yang terjadi melalui transaksi langsung mempengaruhi angka stok terkini, tanpa perlu rekonsiliasi manual di akhir hari.
+e. **Real-time update** — perubahan stok yang terjadi melalui transaksi langsung mempengaruhi angka stok terkini, tanpa perlu rekonsiliasi manual di akhir hari. Penelitian Ghiffari dan Aryanto (2025) yang menerapkan sistem e-inventory berbasis mobile real-time untuk UMKM menunjukkan tingkat penerimaan pengguna (User Acceptance Test) sebesar 97,5%, mengkonfirmasi bahwa digitalisasi proses pencatatan stok memperkuat efektivitas operasional dan mendukung pengambilan keputusan berbasis data yang terstruktur, dibandingkan pencatatan konvensional yang rentan terhadap kesalahan dan keterlambatan.
 
 ### 2.7.2 Penerapan pada GasTrack
 
-Pada aplikasi GasTrack, prinsip-prinsip manajemen stok diterapkan dengan menghubungkan dua sumber utama pergerakan stok, yaitu:
+Pada aplikasi GasTrack, prinsip-prinsip manajemen stok diterapkan dengan menghubungkan tiga sumber pergerakan stok, yaitu:
 
 1. **Halaman Transaksi (mengurangi/menambah stok berdasarkan jenis transaksi):**
    - Isi Ulang: Tabung Isi berkurang, Tabung Kosong bertambah dalam jumlah yang sama.
@@ -394,7 +397,12 @@ Pada aplikasi GasTrack, prinsip-prinsip manajemen stok diterapkan dengan menghub
 2. **Halaman Kiriman (menambah stok ketika menerima kiriman dari Agen):**
    - Kiriman dari Agen: Tabung Isi bertambah, Tabung Kosong berkurang dalam jumlah yang sama (tabung kosong dibawa pulang Agen sebagai pengembalian).
 
-Dengan model ini, stok yang ditampilkan pada Dashboard, Manajemen Stok, dan Transaksi Baru selalu mencerminkan kondisi terkini secara real-time, tanpa memerlukan input manual terpisah dari pengguna.
+3. **Halaman Manajemen Stok — Update Manual (penyesuaian langsung oleh pengguna):**
+   - Inisialisasi stok pertama kali saat Pangkalan mulai menggunakan aplikasi.
+   - Koreksi manual jika terjadi selisih antara catatan sistem dengan kondisi fisik (misalnya akibat audit fisik, kerusakan tabung, atau kejadian di luar sistem).
+   - Penambahan varian baru ketika Agen memperkenalkan produk gas baru.
+
+Dengan model ini, stok yang ditampilkan pada Dashboard, Manajemen Stok, dan Transaksi Baru selalu mencerminkan kondisi terkini secara real-time. Update otomatis dari transaksi dan kiriman menjadi alur utama, sementara update manual berfungsi sebagai mekanisme pendukung untuk inisialisasi dan koreksi.
 
 ### 2.7.3 Manfaat Digitalisasi Stok bagi Pangkalan
 
@@ -415,23 +423,71 @@ e. **Dasar pengambilan keputusan** restok yang lebih akurat berdasarkan data nya
 # BAB III  
 # PERANCANGAN APLIKASI GASTRACK
 
-Bab ini menyajikan rancangan tujuh halaman utama aplikasi GasTrack pada modul Pangkalan, beserta acceptance criteria dan function specification untuk masing-masing halaman. Pada akhir bab disertakan struktur data dan Entity Relationship Diagram yang mendasari keseluruhan rancangan.
+Bab ini menyajikan rancangan tujuh halaman utama aplikasi GasTrack pada modul Pangkalan, beserta acceptance criteria dan function specification untuk masing-masing halaman. Sebelum perancangan halaman dipaparkan, terlebih dahulu disajikan Use Case Diagram untuk mengidentifikasi fungsionalitas sistem yang akan diwujudkan. Pada akhir bab disertakan struktur data dan Entity Relationship Diagram yang mendasari keseluruhan rancangan.
 
 Untuk konsistensi penyajian, seluruh halaman dirancang menggunakan skema warna gelap (dark mode) dengan aksen hijau (`#4CAF50`) sebagai warna utama dan tata letak dua kolom: sidebar navigasi di sebelah kiri (lebar tetap) dan area konten di sebelah kanan.
 
 ---
 
-## 3.1 User Interface Form Login
+## 3.1 Use Case Diagram
 
-`[Gambar 3.1 — Form Login]`
+Use Case Diagram menggambarkan interaksi antara aktor (pengguna sistem) dengan use case (fungsi yang disediakan sistem) di dalam batas sistem (system boundary) modul Pangkalan aplikasi GasTrack. Diagram ini menjadi acuan dalam menentukan fungsionalitas apa saja yang harus tersedia pada masing-masing halaman antarmuka.
 
-**Gambar 3.1 Form Login**
+`[Gambar 3.1 — Use Case Diagram GasTrack Modul Pangkalan]`
+
+**Gambar 3.1 Use Case Diagram GasTrack Modul Pangkalan**
+
+### 3.1.1 Aktor
+
+Pada modul Pangkalan terdapat dua aktor yang terlibat dalam sistem:
+
+1. **Pemilik Pangkalan** — aktor utama (primary actor) yang berperan sebagai pengguna langsung aplikasi GasTrack. Pemilik Pangkalan mengakses seluruh fungsionalitas modul Pangkalan untuk operasional harian, mulai dari pencatatan transaksi konsumen, manajemen stok, hingga penyelesaian pembayaran kiriman dari Agen.
+
+2. **Agen Mitra** — aktor sekunder (secondary actor) yang tidak menggunakan modul Pangkalan secara langsung, namun terlibat dalam proses verifikasi pembayaran kiriman dengan metode Transfer Bank. Verifikasi dilakukan melalui sistem Agen yang terhubung dengan modul Pangkalan.
+
+### 3.1.2 Daftar Use Case Utama
+
+**Tabel 3.1 Daftar Use Case Modul Pangkalan**
+
+| Kode | Use Case | Aktor | Deskripsi Singkat |
+|---|---|---|---|
+| UC-01 | Login ke Sistem | Pemilik Pangkalan | Otentikasi pengguna menggunakan username dan kata sandi yang dibuat oleh Agen |
+| UC-02 | Lihat Dashboard | Pemilik Pangkalan | Melihat ringkasan stok, transaksi hari ini, dan peringatan stok kritis |
+| UC-03 | Mengelola Stok | Pemilik Pangkalan | Melihat kartu stok per varian, riwayat pergerakan stok, serta inisialisasi/koreksi stok manual |
+| UC-04 | Mencatat Transaksi | Pemilik Pangkalan | Mencatat transaksi konsumen (Isi Ulang, Beli Tabung, Jual Tabung) dengan pemilihan kondisi tabung dan metode pembayaran |
+| UC-05 | Lihat Riwayat Transaksi | Pemilik Pangkalan | Melihat seluruh transaksi yang telah dicatat dengan filter pencarian dan opsi ekspor data |
+| UC-06 | Mengelola Kiriman | Pemilik Pangkalan, Agen Mitra | Mengelola seluruh kiriman dari Agen, termasuk konfirmasi terima dan konfirmasi pembayaran (dengan verifikasi Agen untuk metode Transfer Bank) |
+| UC-07 | Lihat Laporan Keuangan | Pemilik Pangkalan | Melihat laporan keuangan periodik dengan analisis penjualan dan pengeluaran |
+
+### 3.1.3 Sub Use Case dan Relasi Include/Extend
+
+Setiap use case utama memiliki sub use case yang merepresentasikan action signifikan pada masing-masing halaman, dengan relasi `«include»` (action yang selalu dilakukan ketika use case utama dipakai) dan `«extend»` (action opsional yang dipicu sesuai kebutuhan):
+
+a. **UC-01 Login ke Sistem** memiliki sub: Reset Sandi via Agen (`«extend»`). Pengguna yang lupa sandi diarahkan untuk menghubungi Agen mitra karena akun Pangkalan dikelola oleh Agen.
+
+b. **UC-03 Mengelola Stok** memiliki sub: Update Stok Manual (`«extend»`). Sub use case ini berfungsi untuk inisialisasi stok awal, koreksi manual jika terdapat selisih dengan kondisi fisik, atau penambahan varian baru.
+
+c. **UC-04 Mencatat Transaksi** memiliki tiga sub: Pilih atau Tambah Pelanggan (`«include»`), Atur Harga Default (`«extend»`), dan Pilih Metode Pembayaran (`«include»`). Pemilihan pelanggan dan metode pembayaran wajib pada setiap transaksi, sedangkan pengaturan harga default bersifat opsional.
+
+d. **UC-05 Lihat Riwayat Transaksi** memiliki dua sub: Filter & Cari Transaksi (`«extend»`) dan Ekspor CSV Transaksi (`«extend»`). Keduanya bersifat opsional sesuai kebutuhan pengguna saat mengakses riwayat.
+
+e. **UC-06 Mengelola Kiriman** memiliki dua sub: Konfirmasi Terima Kiriman (`«include»`) dan Konfirmasi Pembayaran (`«include»`). Konfirmasi Pembayaran terhubung ke aktor Agen Mitra untuk skenario verifikasi pembayaran metode Transfer Bank, sebagaimana telah diuraikan pada deskripsi alur Manajemen Kiriman.
+
+f. **UC-07 Lihat Laporan Keuangan** memiliki dua sub: Filter Periode Laporan (`«extend»`) dan Ekspor Laporan Keuangan (`«extend»`).
+
+---
+
+## 3.2 User Interface Form Login
+
+`[Gambar 3.2 — Form Login]`
+
+**Gambar 3.2 Form Login**
 
 Halaman Form Login merupakan halaman pertama yang muncul ketika pengguna membuka aplikasi GasTrack. Halaman ini berfungsi sebagai pintu masuk ke sistem dengan memverifikasi identitas pengguna sebagai Pangkalan resmi yang terdaftar sebagai mitra dari salah satu Agen LPG. Pada halaman ini terdapat dua kolom input utama, yaitu Username dan Kata Sandi, serta tombol "Masuk Sekarang" sebagai aksi utama. Username yang digunakan adalah identitas unik yang diberikan oleh Agen kepada Pangkalan mitra, bukan email atau nomor telepon. Kata Sandi ditampilkan dalam bentuk karakter tersembunyi (masking) untuk menjaga kerahasiaan data. Di bagian atas form terdapat logo dan nama brand GasTrack dengan warna hijau aksen yang menonjol. Halaman ini juga menyediakan checkbox "Ingat saya" untuk menyimpan sesi login, dan link "Lupa sandi?" untuk pemulihan akses. Pada bagian bawah halaman terdapat informasi hak cipta dan versi sistem.
 
-### 3.1.1 Acceptance Criteria — Form Login
+### 3.2.1 Acceptance Criteria — Form Login
 
-**Tabel 3.1 Acceptance Criteria Pada Form Login**
+**Tabel 3.2 Acceptance Criteria Pada Form Login**
 
 | Code | Controller | Condition | Note |
 |---|---|---|---|
@@ -457,9 +513,9 @@ Halaman Form Login merupakan halaman pertama yang muncul ketika pengguna membuka
 |  |  | Sewaktu | Klik tombol Masuk Sekarang |
 |  |  | Maka | Sesi login disimpan dan pengguna tidak perlu login ulang pada kunjungan berikutnya selama sesi belum habis |
 
-### 3.1.2 Function Specification — Form Login
+### 3.2.2 Function Specification — Form Login
 
-**Tabel 3.2 Function Specification Pada Form Login**
+**Tabel 3.3 Function Specification Pada Form Login**
 
 | Field Name | Type | Length | MCO | Hide | Disable | Details | Validation |
 |---|---|---|---|---|---|---|---|
@@ -472,17 +528,17 @@ Halaman Form Login merupakan halaman pertama yang muncul ketika pengguna membuka
 
 ---
 
-## 3.2 User Interface Dashboard Pangkalan
+## 3.3 User Interface Dashboard Pangkalan
 
-`[Gambar 3.2 — Dashboard Pangkalan]`
+`[Gambar 3.3 — Dashboard Pangkalan]`
 
-**Gambar 3.2 Dashboard Pangkalan**
+**Gambar 3.3 Dashboard Pangkalan**
 
 Halaman Dashboard Pangkalan merupakan halaman yang muncul setelah pengguna berhasil login. Halaman ini berfungsi sebagai pusat informasi ringkas mengenai kondisi operasional Pangkalan pada hari berjalan. Dashboard menampilkan empat informasi utama dalam bentuk kartu statistik: jumlah stok LPG 3 kg, jumlah stok Bright Gas 5.5 kg, total transaksi hari ini, dan total pendapatan hari ini. Pada Dashboard hanya ditampilkan dua varian gas dari tiga varian yang dikelola, karena varian LPG 12 kg memiliki frekuensi transaksi yang lebih rendah; data lengkap untuk seluruh varian tetap tersedia pada halaman Manajemen Stok. Di bagian atas halaman terdapat banner peringatan stok kritis yang akan muncul ketika salah satu varian gas berada di bawah ambang batas. Banner ini bersifat informatif: teksnya menginformasikan varian gas yang mencapai level kritis dan menyatakan bahwa sistem GasTrack telah memberi notifikasi otomatis ke Agen mitra Pangkalan. Banner tidak menyertakan tombol aksi karena keputusan pengiriman ada di sisi Agen yang sudah memiliki visibilitas real-time terhadap stok Pangkalan mitranya melalui sistem. Pada bagian bawah halaman terdapat tabel ringkas Transaksi Terkini yang menampilkan beberapa transaksi terakhir, masing-masing dengan informasi nama pelanggan, tipe gas, waktu, dan total nilai transaksi.
 
-### 3.2.1 Acceptance Criteria — Dashboard Pangkalan
+### 3.3.1 Acceptance Criteria — Dashboard Pangkalan
 
-**Tabel 3.3 Acceptance Criteria Pada Dashboard Pangkalan**
+**Tabel 3.4 Acceptance Criteria Pada Dashboard Pangkalan**
 
 | Code | Controller | Condition | Note |
 |---|---|---|---|
@@ -499,9 +555,9 @@ Halaman Dashboard Pangkalan merupakan halaman yang muncul setelah pengguna berha
 |  |  | Sewaktu | — |
 |  |  | Maka | Maksimal 3 transaksi terakhir hari ini ditampilkan, diurutkan dari yang paling baru, dengan kolom Pelanggan, Tipe Gas, Waktu, dan Total |
 
-### 3.2.2 Function Specification — Dashboard Pangkalan
+### 3.3.2 Function Specification — Dashboard Pangkalan
 
-**Tabel 3.4 Function Specification Pada Dashboard Pangkalan**
+**Tabel 3.5 Function Specification Pada Dashboard Pangkalan**
 
 | Field Name | Type | Length | MCO | Hide | Disable | Details | Validation |
 |---|---|---|---|---|---|---|---|
@@ -521,17 +577,19 @@ Halaman Dashboard Pangkalan merupakan halaman yang muncul setelah pengguna berha
 
 ---
 
-## 3.3 User Interface Manajemen Stok
+## 3.4 User Interface Manajemen Stok
 
-`[Gambar 3.3 — Manajemen Stok]`
+`[Gambar 3.4 — Manajemen Stok]`
 
-**Gambar 3.3 Manajemen Stok**
+**Gambar 3.4 Manajemen Stok**
 
 Halaman Manajemen Stok berfungsi sebagai pusat informasi detail mengenai kondisi stok seluruh varian gas yang dikelola oleh Pangkalan. Berbeda dengan Dashboard yang hanya menampilkan dua varian utama, halaman ini menampilkan ketiga varian secara lengkap, masing-masing dalam bentuk kartu yang berisi nama varian, badge status, jumlah tabung isi terkini, persentase ketersediaan, progress bar, serta jumlah tabung masuk dan keluar pada bulan berjalan. Di bagian bawah kartu terdapat tabel Riwayat Pergerakan Stok yang mencatat setiap aktivitas yang mempengaruhi stok tabung, baik yang berasal dari transaksi dengan pelanggan maupun kiriman dari Agen. Tabel ini dilengkapi dengan tiga kontrol filter di sudut kanan atas: filter Tipe Gerakan (dropdown), filter rentang tanggal, dan tombol filter lanjutan. Setiap baris pada tabel mencatat timestamp kejadian, ID sumber referensi (ID transaksi atau ID kiriman), tipe gerakan, varian tabung, jumlah perubahan tabung isi, dan jumlah perubahan tabung kosong.
 
-### 3.3.1 Acceptance Criteria — Manajemen Stok
+Pada pojok kanan bawah halaman terdapat ikon **"Update Stok"** (berbentuk gear/setting) yang ketika diklik akan membuka drawer di sisi kanan halaman, dengan pola interaksi serupa drawer "Atur Harga Default" pada halaman Transaksi Baru. Drawer ini berisi tiga field utama: combobox Varian Tabung, input Tabung Isi, dan input Tabung Kosong. Fitur ini dirancang untuk tiga skenario operasional: (1) **inisialisasi stok awal** ketika Pangkalan pertama kali menggunakan aplikasi dan perlu memasukkan jumlah stok yang sudah ada secara fisik, (2) **koreksi manual** jika terjadi selisih antara catatan sistem dengan stok fisik akibat kejadian di luar sistem (misalnya kerusakan tabung, audit fisik bulanan), dan (3) **penambahan varian baru** ketika Agen memperkenalkan produk gas baru. Pada combobox Varian Tabung, pengguna dapat memilih varian yang sudah terdaftar — yang akan otomatis mengisi field Tabung Isi dan Tabung Kosong dengan nilai stok terkini, atau mengetik langsung nama varian baru untuk menambah varian ke sistem.
 
-**Tabel 3.5 Acceptance Criteria Pada Manajemen Stok**
+### 3.4.1 Acceptance Criteria — Manajemen Stok
+
+**Tabel 3.6 Acceptance Criteria Pada Manajemen Stok**
 
 | Code | Controller | Condition | Note |
 |---|---|---|---|
@@ -553,10 +611,22 @@ Halaman Manajemen Stok berfungsi sebagai pusat informasi detail mengenai kondisi
 | AC-06 | Pagination | Jika | Jumlah total entri melebihi kapasitas satu halaman |
 |  |  | Sewaktu | Klik tombol navigasi |
 |  |  | Maka | Tabel menampilkan halaman selanjutnya/sebelumnya beserta indikator "Menampilkan X dari Y entri" |
+| AC-07 | Ikon Update Stok | Jika | Pengguna mengklik ikon "Update Stok" di pojok kanan bawah halaman |
+|  |  | Sewaktu | Klik ikon |
+|  |  | Maka | Drawer "Update Stok" muncul di sisi kanan halaman dengan field Varian Tabung, Tabung Isi, dan Tabung Kosong dalam kondisi kosong |
+| AC-08 | Combobox Varian Tabung (Drawer) | Jika | Pengguna memilih varian yang sudah terdaftar dari opsi dropdown |
+|  |  | Sewaktu | Klik opsi varian |
+|  |  | Maka | Field Tabung Isi dan Tabung Kosong otomatis terisi dengan jumlah stok terkini dari varian yang dipilih |
+| AC-09 | Combobox Varian Tabung (Drawer) | Jika | Pengguna mengetik nama varian yang belum terdaftar di sistem |
+|  |  | Sewaktu | Field diisi dengan nilai baru |
+|  |  | Maka | Sistem mengenali sebagai varian baru, field Tabung Isi dan Tabung Kosong tetap kosong (default 0) untuk diisi manual |
+| AC-10 | Tombol Simpan (Drawer Update Stok) | Jika | Varian Tabung telah dipilih atau diketik, dan field Tabung Isi serta Tabung Kosong telah diisi dengan nilai valid (≥ 0) |
+|  |  | Sewaktu | Klik tombol Simpan |
+|  |  | Maka | Stok ter-update sesuai input. Jika varian baru, record Produk dan Stok baru dibuat. Drawer ditutup, kartu stok diperbarui, dan tabel Riwayat Pergerakan Stok mencatat satu entry baru bertipe "Update Manual" |
 
-### 3.3.2 Function Specification — Manajemen Stok
+### 3.4.2 Function Specification — Manajemen Stok
 
-**Tabel 3.6 Function Specification Pada Manajemen Stok**
+**Tabel 3.7 Function Specification Pada Manajemen Stok**
 
 | Field Name | Type | Length | MCO | Hide | Disable | Details | Validation |
 |---|---|---|---|---|---|---|---|
@@ -574,19 +644,26 @@ Halaman Manajemen Stok berfungsi sebagai pusat informasi detail mengenai kondisi
 | **Tabel Riwayat Pergerakan Stok** |  |  |  |  |  |  |  |
 | Timestamp | DateTime | — | — | No | No | Format: tanggal bold + waktu WIB di baris bawah |  |
 | Sumber | Text | 20 | — | No | No | Contoh: `TRX-1234`, `KRM-0821` |  |
-| Tipe Gerakan | Enum | — | — | No | No | Isi Ulang / Beli Tabung / Jual Tabung / Kiriman Agen |  |
+| Tipe Gerakan | Enum | — | — | No | No | Isi Ulang / Beli Tabung / Jual Tabung / Kiriman Agen / Update Manual |  |
 | Tipe/Varian | Text | 30 | — | No | No | Nama varian (LPG 3kg, BG 5.5kg, LPG 12kg) tanpa indikator visual tambahan |  |
 | Tabung Isi | Integer | — | — | No | No | Prefix +/-, contoh: `-5 Tabung` |  |
 | Tabung Kosong | Integer | — | — | No | No | Prefix +/-, kosongkan dengan `-` jika tidak ada |  |
 | Pagination | Component | — | — | No | No | Indikator "Menampilkan X dari Y entri" + tombol `<` dan `>` |  |
+| **Ikon Update Stok** |  |  |  |  |  |  |  |
+| Ikon Update Stok | Icon Button | — | O | No | No | Ikon gear + label "Update Stok" di pojok kanan bawah halaman, membuka drawer Update Stok |  |
+| **Drawer Update Stok** |  |  |  |  |  |  |  |
+| Varian Tabung | Combobox | 30 | M | No | No | Combobox editable dengan opsi varian existing (LPG 3kg, Bright Gas 5.5kg, LPG 12kg, dan varian lain yang sudah ditambahkan). Pengguna dapat memilih varian existing untuk edit atau mengetik nama baru untuk menambah varian | Wajib dipilih atau diisi |
+| Tabung Isi | Integer | 5 | M | No | No | Jumlah tabung kondisi isi. Untuk varian existing, terisi otomatis dengan nilai stok terkini saat varian dipilih | Numerik ≥ 0 |
+| Tabung Kosong | Integer | 5 | M | No | No | Jumlah tabung kondisi kosong. Untuk varian existing, terisi otomatis dengan nilai stok terkini saat varian dipilih | Numerik ≥ 0 |
+| Tombol Simpan (Drawer Update Stok) | Button | — | — | No | Conditional | Disabled jika field wajib belum terisi |  |
 
 ---
 
-## 3.4 User Interface Transaksi Baru
+## 3.5 User Interface Transaksi Baru
 
-`[Gambar 3.4 — Transaksi Baru]`
+`[Gambar 3.5 — Transaksi Baru]`
 
-**Gambar 3.4 Transaksi Baru**
+**Gambar 3.5 Transaksi Baru**
 
 Halaman Transaksi Baru adalah halaman utama tempat pemilik Pangkalan mencatat setiap transaksi jual beli yang terjadi dengan pelanggan. Halaman ini dirancang sebagai form multi-step dengan tiga zona utama: area input form (sebelah kiri-tengah), panel keranjang ringkasan (sebelah kanan), dan dua drawer yang muncul di sisi paling kanan halaman secara kondisional, yaitu drawer "Tambah Pelanggan" dan drawer "Atur Harga Default".
 
@@ -598,9 +675,9 @@ Pada pojok kanan bawah halaman terdapat ikon **"default harga"** (gear) yang mem
 
 Drawer **"Tambah Pelanggan"** muncul di sisi kanan ketika pengguna mengklik ikon plus di sebelah dropdown Nama Pelanggan. Drawer ini menyediakan input nama pelanggan baru dan dropdown jenis pengguna (Pribadi atau Retailer/UMKM).
 
-### 3.4.1 Acceptance Criteria — Transaksi Baru
+### 3.5.1 Acceptance Criteria — Transaksi Baru
 
-**Tabel 3.7 Acceptance Criteria Pada Transaksi Baru**
+**Tabel 3.8 Acceptance Criteria Pada Transaksi Baru**
 
 | Code | Controller | Condition | Note |
 |---|---|---|---|
@@ -638,9 +715,9 @@ Drawer **"Tambah Pelanggan"** muncul di sisi kanan ketika pengguna mengklik ikon
 |  |  | Sewaktu | Klik tombol Tambah |
 |  |  | Maka | Item ditambahkan ke keranjang dengan harga override, dan ditandai dengan ikon/label khusus |
 
-### 3.4.2 Function Specification — Transaksi Baru
+### 3.5.2 Function Specification — Transaksi Baru
 
-**Tabel 3.8 Function Specification Pada Transaksi Baru**
+**Tabel 3.9 Function Specification Pada Transaksi Baru**
 
 | Field Name | Type | Length | MCO | Hide | Disable | Details | Validation |
 |---|---|---|---|---|---|---|---|
@@ -674,17 +751,17 @@ Drawer **"Tambah Pelanggan"** muncul di sisi kanan ketika pengguna mengklik ikon
 
 ---
 
-## 3.5 User Interface Riwayat Transaksi
+## 3.6 User Interface Riwayat Transaksi
 
-`[Gambar 3.5 — Riwayat Transaksi]`
+`[Gambar 3.6 — Riwayat Transaksi]`
 
-**Gambar 3.5 Riwayat Transaksi**
+**Gambar 3.6 Riwayat Transaksi**
 
 Halaman Riwayat Transaksi menyediakan akses terhadap seluruh transaksi yang pernah dicatat oleh Pangkalan, dikelompokkan berdasarkan tanggal kejadian (Hari Ini, Kemarin, dan seterusnya). Halaman ini dilengkapi dengan search bar di sudut kiri atas untuk mencari berdasarkan ID transaksi atau nama pelanggan, serta tombol Ekspor CSV di sudut kanan atas untuk mengunduh data dalam format spreadsheet. Di bawah baris search dan ekspor terdapat tiga kontrol filter sejajar: filter Tipe Transaksi, filter Varian Tabung, dan filter rentang tanggal. Setiap grup tanggal menampilkan tabel transaksi dengan kolom ID & Waktu, Pelanggan (beserta jenis dan ID pelanggan), Tipe Transaksi, Varian Tabung, Jumlah, dan Total Transaksi. Pada bagian bawah halaman terdapat kontrol pagination bernomor halaman untuk navigasi antar halaman jika jumlah data melebihi kapasitas satu halaman.
 
-### 3.5.1 Acceptance Criteria — Riwayat Transaksi
+### 3.6.1 Acceptance Criteria — Riwayat Transaksi
 
-**Tabel 3.9 Acceptance Criteria Pada Riwayat Transaksi**
+**Tabel 3.10 Acceptance Criteria Pada Riwayat Transaksi**
 
 | Code | Controller | Condition | Note |
 |---|---|---|---|
@@ -704,9 +781,9 @@ Halaman Riwayat Transaksi menyediakan akses terhadap seluruh transaksi yang pern
 |  |  | Sewaktu | Klik nomor halaman atau tombol navigasi |
 |  |  | Maka | Tabel menampilkan halaman yang dipilih beserta indikator "Menampilkan X dari Y transaksi" |
 
-### 3.5.2 Function Specification — Riwayat Transaksi
+### 3.6.2 Function Specification — Riwayat Transaksi
 
-**Tabel 3.10 Function Specification Pada Riwayat Transaksi**
+**Tabel 3.11 Function Specification Pada Riwayat Transaksi**
 
 | Field Name | Type | Length | MCO | Hide | Disable | Details | Validation |
 |---|---|---|---|---|---|---|---|
@@ -730,19 +807,19 @@ Halaman Riwayat Transaksi menyediakan akses terhadap seluruh transaksi yang pern
 
 ---
 
-## 3.6 User Interface Manajemen Kiriman
+## 3.7 User Interface Manajemen Kiriman
 
-`[Gambar 3.6 — Manajemen Kiriman]`
+`[Gambar 3.7 — Manajemen Kiriman]`
 
-**Gambar 3.6 Manajemen Kiriman**
+**Gambar 3.7 Manajemen Kiriman**
 
 Halaman Manajemen Kiriman digunakan oleh pemilik Pangkalan untuk memantau dan mengelola setiap kiriman tabung gas yang dijadwalkan, dalam proses, atau telah selesai dengan Agen mitra. Halaman ini menggunakan tata letak dua kolom: daftar kartu kiriman di sebelah kiri-tengah (lebar mayoritas) dan panel Form Pembayaran di sebelah kanan yang muncul ketika salah satu kartu kiriman dipilih. Pada bagian atas halaman terdapat empat tab filter berbentuk pill: Semua, Dijadwalkan, Diterima, dan Lunas, yang berfungsi untuk memfilter kartu kiriman berdasarkan status. Setiap kartu kiriman menampilkan informasi nama Agen, ID invoice, status (dengan badge berwarna sesuai status), informasi detail jenis tabung, jumlah, jadwal/waktu, total tagihan, dan tombol aksi yang berubah sesuai status (Konfirmasi Terima untuk status Dijadwalkan, Bayar Sekarang untuk status Diterima). Panel Form Pembayaran menyediakan pilihan metode pembayaran (Tunai atau Transfer Bank), detail rekening tujuan transfer, area unggah bukti transfer, dan tombol Konfirmasi Pembayaran untuk menyelesaikan transaksi.
 
 Alur pembayaran berbeda untuk dua metode yang tersedia. Untuk **Tunai (Cash)**, diasumsikan Pangkalan menyerahkan uang tunai langsung kepada supir Agen saat kiriman tiba; klik Konfirmasi Pembayaran berfungsi sebagai pencatatan internal Pangkalan dan langsung mengubah status kiriman menjadi "Lunas". Untuk **Transfer Bank**, Pangkalan mengunggah bukti transfer yang kemudian terkirim ke Agen melalui sistem; status kiriman tetap pada "Diterima" dengan label tambahan "Menunggu verifikasi pembayaran" sampai Agen melakukan verifikasi dan menyetujui di sistem Agen. Setelah Agen menyetujui, status kiriman berubah menjadi "Lunas" secara otomatis.
 
-### 3.6.1 Acceptance Criteria — Manajemen Kiriman
+### 3.7.1 Acceptance Criteria — Manajemen Kiriman
 
-**Tabel 3.11 Acceptance Criteria Pada Manajemen Kiriman**
+**Tabel 3.12 Acceptance Criteria Pada Manajemen Kiriman**
 
 | Code | Controller | Condition | Note |
 |---|---|---|---|
@@ -765,9 +842,9 @@ Alur pembayaran berbeda untuk dua metode yang tersedia. Untuk **Tunai (Cash)**, 
 |  |  | Sewaktu | Klik tombol Konfirmasi Pembayaran |
 |  |  | Maka | Bukti transfer terkirim ke sistem Agen untuk diverifikasi. Status kiriman tetap pada "Diterima" dengan label tambahan "Menunggu verifikasi pembayaran" sampai Agen menyetujui. Setelah Agen menyetujui di sistem Agen, status berubah menjadi "Lunas" secara otomatis |
 
-### 3.6.2 Function Specification — Manajemen Kiriman
+### 3.7.2 Function Specification — Manajemen Kiriman
 
-**Tabel 3.12 Function Specification Pada Manajemen Kiriman**
+**Tabel 3.13 Function Specification Pada Manajemen Kiriman**
 
 | Field Name | Type | Length | MCO | Hide | Disable | Details | Validation |
 |---|---|---|---|---|---|---|---|
@@ -792,17 +869,17 @@ Alur pembayaran berbeda untuk dua metode yang tersedia. Untuk **Tunai (Cash)**, 
 
 ---
 
-## 3.7 User Interface Laporan Keuangan
+## 3.8 User Interface Laporan Keuangan
 
-`[Gambar 3.7 — Laporan Keuangan]`
+`[Gambar 3.8 — Laporan Keuangan]`
 
-**Gambar 3.7 Laporan Keuangan**
+**Gambar 3.8 Laporan Keuangan**
 
 Halaman Laporan Keuangan menyajikan ringkasan keuangan Pangkalan dalam periode waktu yang dapat dipilih oleh pengguna. Pada bagian atas halaman terdapat tiga tombol filter periode (7 hari, 30 hari, dan Kustom dengan date picker) serta tombol Ekspor CSV untuk mengunduh laporan. Di bawah baris filter terdapat empat kartu metrik utama yang menampilkan Total Pendapatan, Total Pengeluaran, Laba Bersih, dan Total Transaksi dalam periode yang dipilih. Bagian bawah halaman dibagi menjadi dua panel visualisasi sejajar: panel kiri menampilkan grafik Tren Pendapatan Harian dalam bentuk kombinasi bar chart dan line chart yang menunjukkan tren pendapatan dan pengeluaran per hari dalam seminggu (Senin sampai Minggu), sementara panel kanan menampilkan Proporsi Volume Tabung per varian dalam bentuk progress bar persentase, serta seksi Metode Pembayaran yang menampilkan distribusi metode pembayaran yang digunakan oleh pelanggan.
 
-### 3.7.1 Acceptance Criteria — Laporan Keuangan
+### 3.8.1 Acceptance Criteria — Laporan Keuangan
 
-**Tabel 3.13 Acceptance Criteria Pada Laporan Keuangan**
+**Tabel 3.14 Acceptance Criteria Pada Laporan Keuangan**
 
 | Code | Controller | Condition | Note |
 |---|---|---|---|
@@ -822,9 +899,9 @@ Halaman Laporan Keuangan menyajikan ringkasan keuangan Pangkalan dalam periode w
 |  |  | Sewaktu | — |
 |  |  | Maka | Setiap baris varian menampilkan nama varian, persentase volume, dan progress bar berwarna sesuai varian |
 
-### 3.7.2 Function Specification — Laporan Keuangan
+### 3.8.2 Function Specification — Laporan Keuangan
 
-**Tabel 3.14 Function Specification Pada Laporan Keuangan**
+**Tabel 3.15 Function Specification Pada Laporan Keuangan**
 
 | Field Name | Type | Length | MCO | Hide | Disable | Details | Validation |
 |---|---|---|---|---|---|---|---|
@@ -855,33 +932,33 @@ Halaman Laporan Keuangan menyajikan ringkasan keuangan Pangkalan dalam periode w
 
 ---
 
-## 3.8 Struktur Data dan Relasi Entitas
+## 3.9 Struktur Data dan Entity Relationship Diagram (ERD)
 
 Untuk mendukung seluruh fungsi pada tujuh halaman yang telah dirancang, tim menyusun struktur data konseptual yang mendefinisikan entitas-entitas utama beserta relasinya. Struktur ini dimaksudkan sebagai panduan logis bagi tahap implementasi database, bukan sebagai skema DBMS yang final.
 
-### 3.8.1 Daftar Entitas dan Atribut
+### 3.9.1 Daftar Entitas dan Atribut
 
-**Tabel 3.15 Daftar Entitas dan Atribut Sistem GasTrack**
+**Tabel 3.16 Daftar Entitas dan Atribut Sistem GasTrack**
 
 | Entitas | Atribut Utama | Keterangan |
 |---|---|---|
 | **Pangkalan** | `id_pangkalan` (PK), `nama_pangkalan`, `nama_pemilik`, `username`, `password_hash`, `id_agen` (FK), `alamat`, `nomor_kontak`, `status_akun` | Data Pangkalan sebagai pengguna utama aplikasi |
 | **Agen** | `id_agen` (PK), `nama_agen`, `alamat`, `nomor_kontak`, `bank`, `nomor_rekening`, `atas_nama` | Data Agen mitra yang menyalurkan kiriman ke Pangkalan |
 | **Pelanggan** | `id_pelanggan` (PK), `id_pangkalan` (FK), `nama_pelanggan`, `jenis_pengguna` (Enum: Pribadi/Retailer), `tanggal_daftar` | Pelanggan yang terdaftar pada Pangkalan tertentu |
-| **Produk** | `id_produk` (PK), `nama_varian` (Enum: LPG 3kg/Bright Gas 5.5kg/LPG 12kg), `harga_default_isi_ulang`, `harga_default_beli_tabung`, `harga_default_jual_tabung_kosong` | Master data varian gas |
+| **Produk** | `id_produk` (PK), `nama_varian` (String, contoh: LPG 3kg/Bright Gas 5.5kg/LPG 12kg, dapat ditambah secara dinamis melalui fitur Update Stok), `harga_default_isi_ulang`, `harga_default_beli_tabung`, `harga_default_jual_tabung_kosong` | Master data varian gas dengan kemampuan penambahan dinamis |
 | **Stok** | `id_stok` (PK), `id_pangkalan` (FK), `id_produk` (FK), `jumlah_tabung_isi`, `jumlah_tabung_kosong`, `kapasitas_max`, `last_updated` | Stok terkini per Pangkalan per varian |
-| **Pergerakan_Stok** | `id_pergerakan` (PK), `id_pangkalan` (FK), `id_produk` (FK), `timestamp`, `id_sumber` (FK), `tipe_sumber` (Enum: Transaksi/Kiriman), `tipe_gerakan` (Enum: Isi Ulang/Beli Tabung/Jual Tabung/Kiriman Agen), `delta_tabung_isi`, `delta_tabung_kosong` | Log historis seluruh perubahan stok |
+| **Pergerakan_Stok** | `id_pergerakan` (PK), `id_pangkalan` (FK), `id_produk` (FK), `timestamp`, `id_sumber` (FK, nullable untuk Update Manual), `tipe_sumber` (Enum: Transaksi/Kiriman/Manual), `tipe_gerakan` (Enum: Isi Ulang/Beli Tabung/Jual Tabung/Kiriman Agen/Update Manual), `delta_tabung_isi`, `delta_tabung_kosong` | Log historis seluruh perubahan stok, termasuk update manual untuk inisialisasi atau koreksi |
 | **Transaksi** | `id_transaksi` (PK), `id_pangkalan` (FK), `id_pelanggan` (FK), `timestamp`, `metode_pembayaran` (Enum: Tunai/Transfer Bank), `total`, `catatan` | Header transaksi dengan pelanggan |
 | **Detail_Transaksi** | `id_detail` (PK), `id_transaksi` (FK), `id_produk` (FK), `tipe_transaksi` (Enum), `kondisi_tabung` (Enum: Isi/Kosong), `jumlah`, `harga_satuan`, `harga_override` (nullable), `subtotal` | Item dalam satu transaksi |
 | **Kiriman** | `id_kiriman` (PK), `id_pangkalan` (FK), `id_agen` (FK), `id_invoice`, `tanggal_dibuat`, `jadwal_keberangkatan`, `waktu_diterima` (nullable), `status` (Enum: Dijadwalkan/Diterima/Lunas), `total_tagihan` | Data kiriman dari Agen ke Pangkalan |
 | **Detail_Kiriman** | `id_detail_kiriman` (PK), `id_kiriman` (FK), `id_produk` (FK), `jumlah_tabung`, `harga_satuan`, `subtotal` | Item dalam satu kiriman |
 | **Pembayaran** | `id_pembayaran` (PK), `id_kiriman` (FK), `metode` (Enum: Tunai/Transfer Bank), `jumlah_bayar`, `bukti_transfer_url` (nullable, hanya untuk Transfer Bank), `timestamp_pengajuan`, `status_verifikasi_agen` (Enum: Otomatis Disetujui/Menunggu Verifikasi/Disetujui Agen), `timestamp_verifikasi` (nullable) | Catatan pembayaran kiriman. Untuk Tunai, `status_verifikasi_agen` langsung "Otomatis Disetujui". Untuk Transfer Bank, status awal "Menunggu Verifikasi" hingga Agen melakukan verifikasi melalui sistem Agen |
 
-### 3.8.2 Entity Relationship Diagram (ERD)
+### 3.9.2 Entity Relationship Diagram (ERD)
 
-`[Gambar 3.8 — Entity Relationship Diagram (ERD) GasTrack]`
+`[Gambar 3.9 — Entity Relationship Diagram (ERD) GasTrack]`
 
-**Gambar 3.8 Entity Relationship Diagram (ERD) GasTrack**
+**Gambar 3.9 Entity Relationship Diagram (ERD) GasTrack**
 
 Diagram ERD menggambarkan relasi antar entitas pada sistem GasTrack dengan ringkasan sebagai berikut:
 
@@ -960,17 +1037,19 @@ Beberapa pengembangan yang dapat ditambahkan pada iterasi mendatang aplikasi Gas
 
 # DAFTAR PUSTAKA
 
-Babich, N. (2020). *The UX Design Handbook: Wireframes, Mockups, and Prototypes*. Adobe XD Ideas.
+Babich, N. (2020). *Sketch, Wireframe, Mockup, and Prototype: Why, When and How*. UX Planet. Diakses dari https://uxplanet.org/sketch-wireframe-mockup-and-prototype-why-when-and-how-29a25b3157c4
 
 Bank Rakyat Indonesia. (2024). *BRIMOLA — Aplikasi Manajemen Online Agen & Pangkalan Gas Elpiji 3 Kg*. Diakses dari https://brimola.bri.co.id/brimola/faq dan https://play.google.com/store/apps/details?id=id.co.bri.brimola
 
-Galitz, W. O. (2007). *The Essential Guide to User Interface Design: An Introduction to GUI Design Principles and Techniques* (3rd ed.). Wiley.
+Galitz, W. O. (2007). *The Essential Guide to User Interface Design: An Introduction to GUI Design Principles and Techniques* (3rd ed.). Wiley. Salinan digital (sumber tidak resmi, di-host oleh pihak ketiga): https://profagaskar.wordpress.com/wp-content/uploads/2020/03/wiley_the_essential_guide_to_user_interf.pdf
 
-Garrett, J. J. (2010). *The Elements of User Experience: User-Centered Design for the Web and Beyond* (2nd ed.). New Riders.
+Garrett, J. J. (2010). *The Elements of User Experience: User-Centered Design for the Web and Beyond* (2nd ed.). New Riders. Diagram resmi 5-plane model tersedia gratis di situs penulis: http://www.jjg.net/elements/pdf/elements.pdf
 
-International Organization for Standardization. (2019). *ISO 9241-210:2019 Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems*. ISO.
+Ghiffari, S. A., & Aryanto, J. (2025). Transformasi Digital Manajemen Stok UMKM Melalui Implementasi Sistem E-Inventory Mobile Real-Time. *MALCOM: Indonesian Journal of Machine Learning and Computer Science, 6*(1), 11-22. https://doi.org/10.57152/malcom.v6i1.2334. URL: https://journal.irpi.or.id/index.php/malcom/article/view/2334
 
-Kementerian Koperasi dan Usaha Kecil dan Menengah RI. (2022). *Strategi Nasional Pengembangan Ekonomi Digital UMKM*. Jakarta: KemenKopUKM.
+International Organization for Standardization. (2010). *ISO 9241-210:2010 Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems*. ISO. Diakses dari https://www.alekvs.com/wp-content/uploads/2025/06/iso-9241-210.pdf
+
+Kementerian Koordinator Bidang Perekonomian Republik Indonesia. (2021). *Pemerintah Dorong Digitalisasi UMKM hingga Pemerintah Daerah*. Publikasi No. 2937. Diakses dari https://www.ekon.go.id/publikasi/detail/2937/pemerintah-dorong-digitalisasi-umkm-hingga-pemerintah-daerah
 
 Merdeka.com. (2025). *Perbedaan antara Pangkalan dan Agen Gas LPG*. Diakses dari https://www.merdeka.com/uang/perbedaan-antara-pangkalan-dan-agen-gas-lpg-314552-mvk.html
 
@@ -978,11 +1057,13 @@ Nielsen, J. (1994). *10 Usability Heuristics for User Interface Design*. Nielsen
 
 Norman, D., & Nielsen, J. (2016). *The Definition of User Experience (UX)*. Nielsen Norman Group. Diakses dari https://www.nngroup.com/articles/definition-user-experience/
 
-Portonews. (2025). *Presiden Instruksikan Aktivasi Pengecer LPG 3 Kg, Pertamina Gerak Cepat Pastikan Suplai*. Diakses dari https://www.portonews.com/2025/energi/presiden-instruksikan-aktivasi-pengecer-lpg-3-kg-pertamina-gerak-cepat-pastikan-suplai/
+Novriansyah, A., & Kurniawan, D. E. (2022). Pengembangan Aplikasi Pemasaran Ikan Untuk UMKM dan Nelayan Batam dengan Pendekatan User Centered Design (UCD) dan Usability Testing. *Journal of Applied Computer Science and Technology, 3*(1), 163-168. https://doi.org/10.52158/jacost.v3i1.310. URL: https://journal.isas.or.id/index.php/JACOST/article/view/310
 
 PT Pertamina (Persero). (2024). *MyPertamina Merchant — Aplikasi Pencatatan Transaksi LPG 3 Kg untuk Pangkalan*. Diakses dari https://merchant.mypertamina.id dan https://play.google.com/store/apps/details?id=id.mypertamina.merchant.gits
 
-Shneiderman, B., Plaisant, C., Cohen, M., Jacobs, S., Elmqvist, N., & Diakopoulos, N. (2016). *Designing the User Interface: Strategies for Effective Human-Computer Interaction* (6th ed.). Pearson.
+Shneiderman, B., Plaisant, C., Cohen, M., Jacobs, S., Elmqvist, N., & Diakopoulos, N. (2016). *Designing the User Interface: Strategies for Effective Human-Computer Interaction* (6th ed.). Pearson. Preview resmi penerbit: https://api.pageplace.de/preview/DT0400.9781292153926_A37747523/preview-9781292153926_A37747523.pdf
+
+Sugandi, Z. A. W., & Isnaini, K. N. (2023). Perancangan Antarmuka Pengguna dan Pengalaman Pengguna dari Aplikasi Marketplace Bahan Makanan Dapur: Metode User-Centered Design. *JUSTIN (Jurnal Sistem dan Teknologi Informasi), 11*(3), 571. https://doi.org/10.26418/justin.v11i3.67793. URL: https://jurnal.untan.ac.id/index.php/justin/article/view/67793
 
 Tempo.co. (2024). *47.495 Pangkalan LPG Subsidi Milik Pertamina untuk Layani Banten, Jawa Barat dan Jakarta*. Bisnis Tempo, 23 September 2024. Diakses dari https://bisnis.tempo.co/read/1919992/47-495-pangkalan-lpg-subsidi-milik-pertamina-untuk-layani-banten-jawa-barat-dan-jakarta
 
