@@ -443,7 +443,7 @@ Pada modul Pangkalan terdapat dua aktor yang terlibat dalam sistem:
 
 1. **Pemilik Pangkalan** — aktor utama (primary actor) yang berperan sebagai pengguna langsung aplikasi GasTrack. Pemilik Pangkalan mengakses seluruh fungsionalitas modul Pangkalan untuk operasional harian, mulai dari pencatatan transaksi konsumen, manajemen stok, hingga penyelesaian pembayaran kiriman dari Agen.
 
-2. **Agen Mitra** — aktor sekunder (secondary actor) yang tidak menggunakan modul Pangkalan secara langsung, namun terlibat dalam proses verifikasi pembayaran kiriman dengan metode Transfer Bank. Verifikasi dilakukan melalui sistem Agen yang terhubung dengan modul Pangkalan.
+2. **Agen Mitra** — aktor sekunder (secondary actor) yang tidak menggunakan modul Pangkalan secara langsung, namun memiliki dua keterlibatan utama dengan modul ini. Pertama, Agen Mitra dapat **melihat dan memantau kondisi stok Pangkalan mitra secara real-time** melalui sistem Agen yang terkoneksi dengan data stok modul Pangkalan; kapabilitas ini menjadi fondasi pengambilan keputusan restok oleh Agen tanpa perlu lagi mengandalkan panggilan telepon dari pemilik Pangkalan atau perkiraan berdasarkan pengalaman sopir. Kedua, Agen Mitra terlibat dalam proses verifikasi pembayaran kiriman dengan metode Transfer Bank, di mana verifikasi dilakukan melalui sistem Agen yang terhubung dengan modul Pangkalan.
 
 ### 3.1.2 Daftar Use Case Utama
 
@@ -458,6 +458,7 @@ Pada modul Pangkalan terdapat dua aktor yang terlibat dalam sistem:
 | UC-05 | Lihat Riwayat Transaksi | Pemilik Pangkalan | Melihat seluruh transaksi yang telah dicatat dengan filter pencarian dan opsi ekspor data |
 | UC-06 | Mengelola Kiriman | Pemilik Pangkalan, Agen Mitra | Mengelola seluruh kiriman dari Agen, termasuk konfirmasi terima dan konfirmasi pembayaran (dengan verifikasi Agen untuk metode Transfer Bank) |
 | UC-07 | Lihat Laporan Keuangan | Pemilik Pangkalan | Melihat laporan keuangan periodik dengan analisis penjualan dan pengeluaran |
+| UC-08 | Melihat Stok Pangkalan | Agen Mitra | Memantau kondisi stok Pangkalan mitra secara real-time melalui sistem Agen yang terkoneksi dengan data stok modul Pangkalan, sebagai dasar pengambilan keputusan restok |
 
 ### 3.1.3 Sub Use Case dan Relasi Include/Extend
 
@@ -474,6 +475,10 @@ d. **UC-05 Lihat Riwayat Transaksi** memiliki dua sub: Filter & Cari Transaksi (
 e. **UC-06 Mengelola Kiriman** memiliki dua sub: Konfirmasi Terima Kiriman (`«include»`) dan Konfirmasi Pembayaran (`«include»`). Konfirmasi Pembayaran terhubung ke aktor Agen Mitra untuk skenario verifikasi pembayaran metode Transfer Bank, sebagaimana telah diuraikan pada deskripsi alur Manajemen Kiriman.
 
 f. **UC-07 Lihat Laporan Keuangan** memiliki dua sub: Filter Periode Laporan (`«extend»`) dan Ekspor Laporan Keuangan (`«extend»`).
+
+g. **UC-08 Melihat Stok Pangkalan** adalah use case yang dimiliki oleh aktor Agen Mitra dan dijalankan dari sistem Agen (modul Agen), bukan dari modul Pangkalan. Use case ini merepresentasikan kapabilitas membaca (read-only) data stok seluruh Pangkalan mitra yang dikelola oleh Agen. Kapabilitas ini menjadi inti dari nilai tawar sistem GasTrack: dengan visibilitas real-time terhadap stok Pangkalan mitra, Agen dapat merencanakan pengiriman tabung secara lebih akurat dan responsif dibandingkan praktik konvensional yang mengandalkan jadwal rutin atau panggilan telepon dari pemilik Pangkalan.
+
+Catatan terkait visualisasi: Use Case Diagram pada Gambar 3.1 berfokus pada use case yang terjadi di dalam antarmuka modul Pangkalan, sehingga UC-08 yang diakses dari sisi sistem Agen tidak divisualisasikan dalam diagram tersebut. UC-08 dicantumkan dalam Tabel 3.1 untuk merepresentasikan keseluruhan kebutuhan fungsional sistem GasTrack, sekaligus untuk menegaskan peran ganda Agen Mitra sebagaimana diuraikan pada sub-bab 3.1.1.
 
 ---
 
@@ -962,7 +967,7 @@ Untuk mendukung seluruh fungsi pada tujuh halaman yang telah dirancang, tim meny
 
 Diagram ERD menggambarkan relasi antar entitas pada sistem GasTrack dengan ringkasan sebagai berikut:
 
-a. Satu **Agen** memiliki banyak **Pangkalan** mitra (1:N).
+a. Satu **Agen** memiliki banyak **Pangkalan** mitra (1:N). Relasi ini juga menjadi jalur akses bagi Agen Mitra untuk membaca data stok yang dimiliki Pangkalan mitranya melalui chain `AGEN → PANGKALAN → STOK`, sehingga memungkinkan pemantauan stok real-time dari sisi Agen sebagaimana dimaksud pada Bab I.
 
 b. Satu **Pangkalan** memiliki banyak **Pelanggan** (1:N).
 
