@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 800" font-family="Arial, sans-serif">
+  <style>
+    .entity-box { fill: #FFF8E1; stroke: #333; stroke-width: 1; }
+    .entity-header { fill: #B3D9FF; stroke: #333; stroke-width: 1; }
+    .entity-title { font-size: 12px; font-weight: bold; fill: #000; }
+    .attr-text { font-size: 9.5px; fill: #000; }
+    .attr-pk { font-weight: bold; fill: #b00; }
+    .attr-fk { font-weight: bold; fill: #00a; }
+    .rel-line { stroke: #555; stroke-width: 1; fill: none; }
+    .rel-label { font-size: 8px; fill: #333; font-style: italic; }
+    .diagram-title { font-size: 14px; font-weight: bold; fill: #000; }
+  </style>
+
+  <!-- Title -->
+  <text x="540" y="24" text-anchor="middle" class="diagram-title">Entity Relationship Diagram — Sistem GasTrack</text>
+
+  <!-- ============ ROW 1: AGEN, PRODUK ============ -->
+  <!-- AGEN -->
+  <g>
+    <rect x="60" y="50" width="190" height="110" rx="4" class="entity-box"/>
+    <rect x="60" y="50" width="190" height="22" rx="4" class="entity-header"/>
+    <rect x="60" y="64" width="190" height="8" class="entity-header" stroke="none"/>
+    <text x="155" y="66" text-anchor="middle" class="entity-title">AGEN</text>
+    <text x="68" y="88" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_agen</text>
+    <text x="68" y="102" class="attr-text">nama_agen</text>
+    <text x="68" y="116" class="attr-text">alamat</text>
+    <text x="68" y="130" class="attr-text">nomor_kontak</text>
+    <text x="68" y="144" class="attr-text">bank, nomor_rekening</text>
+  </g>
+
+  <!-- PRODUK -->
+  <g>
+    <rect x="830" y="50" width="200" height="124" rx="4" class="entity-box"/>
+    <rect x="830" y="50" width="200" height="22" rx="4" class="entity-header"/>
+    <rect x="830" y="64" width="200" height="8" class="entity-header" stroke="none"/>
+    <text x="930" y="66" text-anchor="middle" class="entity-title">PRODUK</text>
+    <text x="838" y="88" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_produk</text>
+    <text x="838" y="102" class="attr-text">nama_varian (String)</text>
+    <text x="838" y="116" class="attr-text">harga_default_isi_ulang</text>
+    <text x="838" y="130" class="attr-text">harga_default_beli_tabung</text>
+    <text x="838" y="144" class="attr-text">harga_default_jual_kosong</text>
+    <text x="838" y="160" class="attr-text" font-style="italic" font-size="8.5px">(dapat ditambah dinamis)</text>
+  </g>
+
+  <!-- ============ ROW 2: PANGKALAN, PELANGGAN ============ -->
+  <!-- PANGKALAN -->
+  <g>
+    <rect x="440" y="225" width="200" height="140" rx="4" class="entity-box"/>
+    <rect x="440" y="225" width="200" height="22" rx="4" class="entity-header"/>
+    <rect x="440" y="239" width="200" height="8" class="entity-header" stroke="none"/>
+    <text x="540" y="241" text-anchor="middle" class="entity-title">PANGKALAN</text>
+    <text x="448" y="263" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_pangkalan</text>
+    <text x="448" y="277" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_agen</text>
+    <text x="448" y="291" class="attr-text">nama_pangkalan</text>
+    <text x="448" y="305" class="attr-text">nama_pemilik</text>
+    <text x="448" y="319" class="attr-text">username, password_hash</text>
+    <text x="448" y="333" class="attr-text">alamat, nomor_kontak</text>
+    <text x="448" y="347" class="attr-text">status_akun</text>
+  </g>
+
+  <!-- PELANGGAN -->
+  <g>
+    <rect x="830" y="225" width="200" height="96" rx="4" class="entity-box"/>
+    <rect x="830" y="225" width="200" height="22" rx="4" class="entity-header"/>
+    <rect x="830" y="239" width="200" height="8" class="entity-header" stroke="none"/>
+    <text x="930" y="241" text-anchor="middle" class="entity-title">PELANGGAN</text>
+    <text x="838" y="263" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_pelanggan</text>
+    <text x="838" y="277" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_pangkalan</text>
+    <text x="838" y="291" class="attr-text">nama_pelanggan</text>
+    <text x="838" y="305" class="attr-text">jenis_pengguna</text>
+  </g>
+
+  <!-- ============ ROW 3: KIRIMAN, STOK, TRANSAKSI ============ -->
+  <!-- KIRIMAN -->
+  <g>
+    <rect x="50" y="420" width="200" height="124" rx="4" class="entity-box"/>
+    <rect x="50" y="420" width="200" height="22" rx="4" class="entity-header"/>
+    <rect x="50" y="434" width="200" height="8" class="entity-header" stroke="none"/>
+    <text x="150" y="436" text-anchor="middle" class="entity-title">KIRIMAN</text>
+    <text x="58" y="458" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_kiriman</text>
+    <text x="58" y="472" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_pangkalan</text>
+    <text x="58" y="486" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_agen</text>
+    <text x="58" y="500" class="attr-text">id_invoice, tanggal_dibuat</text>
+    <text x="58" y="514" class="attr-text">jadwal_keberangkatan</text>
+    <text x="58" y="528" class="attr-text">status, total_tagihan</text>
+  </g>
+
+  <!-- STOK -->
+  <g>
+    <rect x="440" y="420" width="200" height="124" rx="4" class="entity-box"/>
+    <rect x="440" y="420" width="200" height="22" rx="4" class="entity-header"/>
+    <rect x="440" y="434" width="200" height="8" class="entity-header" stroke="none"/>
+    <text x="540" y="436" text-anchor="middle" class="entity-title">STOK</text>
+    <text x="448" y="458" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_stok</text>
+    <text x="448" y="472" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_pangkalan</text>
+    <text x="448" y="486" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_produk</text>
+    <text x="448" y="500" class="attr-text">jumlah_tabung_isi</text>
+    <text x="448" y="514" class="attr-text">jumlah_tabung_kosong</text>
+    <text x="448" y="528" class="attr-text">kapasitas_max, last_updated</text>
+  </g>
+
+  <!-- TRANSAKSI -->
+  <g>
+    <rect x="830" y="420" width="200" height="124" rx="4" class="entity-box"/>
+    <rect x="830" y="420" width="200" height="22" rx="4" class="entity-header"/>
+    <rect x="830" y="434" width="200" height="8" class="entity-header" stroke="none"/>
+    <text x="930" y="436" text-anchor="middle" class="entity-title">TRANSAKSI</text>
+    <text x="838" y="458" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_transaksi</text>
+    <text x="838" y="472" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_pangkalan</text>
+    <text x="838" y="486" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_pelanggan</text>
+    <text x="838" y="500" class="attr-text">timestamp</text>
+    <text x="838" y="514" class="attr-text">metode_pembayaran</text>
+    <text x="838" y="528" class="attr-text">total, catatan</text>
+  </g>
+
+  <!-- ============ ROW 4: PEMBAYARAN, DETAIL_KIRIMAN, PERGERAKAN_STOK, DETAIL_TRANSAKSI ============ -->
+  <!-- PEMBAYARAN -->
+  <g>
+    <rect x="20" y="630" width="190" height="124" rx="4" class="entity-box"/>
+    <rect x="20" y="630" width="190" height="22" rx="4" class="entity-header"/>
+    <rect x="20" y="644" width="190" height="8" class="entity-header" stroke="none"/>
+    <text x="115" y="646" text-anchor="middle" class="entity-title">PEMBAYARAN</text>
+    <text x="28" y="668" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_pembayaran</text>
+    <text x="28" y="682" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_kiriman</text>
+    <text x="28" y="696" class="attr-text">metode (Tunai/Transfer)</text>
+    <text x="28" y="710" class="attr-text">jumlah_bayar</text>
+    <text x="28" y="724" class="attr-text">bukti_transfer_url</text>
+    <text x="28" y="738" class="attr-text">status_verifikasi_agen</text>
+  </g>
+
+  <!-- DETAIL_KIRIMAN -->
+  <g>
+    <rect x="230" y="630" width="190" height="96" rx="4" class="entity-box"/>
+    <rect x="230" y="630" width="190" height="22" rx="4" class="entity-header"/>
+    <rect x="230" y="644" width="190" height="8" class="entity-header" stroke="none"/>
+    <text x="325" y="646" text-anchor="middle" class="entity-title">DETAIL_KIRIMAN</text>
+    <text x="238" y="668" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_detail_kiriman</text>
+    <text x="238" y="682" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_kiriman</text>
+    <text x="238" y="696" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_produk</text>
+    <text x="238" y="710" class="attr-text">jumlah_tabung, harga_satuan</text>
+  </g>
+
+  <!-- PERGERAKAN_STOK -->
+  <g>
+    <rect x="440" y="630" width="200" height="124" rx="4" class="entity-box"/>
+    <rect x="440" y="630" width="200" height="22" rx="4" class="entity-header"/>
+    <rect x="440" y="644" width="200" height="8" class="entity-header" stroke="none"/>
+    <text x="540" y="646" text-anchor="middle" class="entity-title">PERGERAKAN_STOK</text>
+    <text x="448" y="668" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_pergerakan</text>
+    <text x="448" y="682" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_pangkalan</text>
+    <text x="448" y="696" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_produk</text>
+    <text x="448" y="710" class="attr-text">timestamp, id_sumber</text>
+    <text x="448" y="724" class="attr-text">tipe_sumber, tipe_gerakan</text>
+    <text x="448" y="738" class="attr-text">delta_isi, delta_kosong</text>
+  </g>
+
+  <!-- DETAIL_TRANSAKSI -->
+  <g>
+    <rect x="830" y="630" width="200" height="124" rx="4" class="entity-box"/>
+    <rect x="830" y="630" width="200" height="22" rx="4" class="entity-header"/>
+    <rect x="830" y="644" width="200" height="8" class="entity-header" stroke="none"/>
+    <text x="930" y="646" text-anchor="middle" class="entity-title">DETAIL_TRANSAKSI</text>
+    <text x="838" y="668" class="attr-text"><tspan class="attr-pk">PK</tspan>  id_detail</text>
+    <text x="838" y="682" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_transaksi</text>
+    <text x="838" y="696" class="attr-text"><tspan class="attr-fk">FK</tspan>  id_produk</text>
+    <text x="838" y="710" class="attr-text">tipe_transaksi, kondisi_tabung</text>
+    <text x="838" y="724" class="attr-text">jumlah, harga_satuan</text>
+    <text x="838" y="738" class="attr-text">harga_override, subtotal</text>
+  </g>
+
+  <!-- ============ RELATIONSHIPS WITH CROW'S FOOT NOTATION ============ -->
+
+  <!-- AGEN (1) ── (N) PANGKALAN: AGEN bottom → PANGKALAN top-left -->
+  <g>
+    <line x1="155" y1="160" x2="155" y2="195" class="rel-line"/>
+    <line x1="155" y1="195" x2="495" y2="195" class="rel-line"/>
+    <line x1="495" y1="195" x2="495" y2="225" class="rel-line"/>
+    <!-- One marker (at AGEN) -->
+    <line x1="148" y1="170" x2="162" y2="170" stroke="#555" stroke-width="1"/>
+    <!-- Many marker (at PANGKALAN) -->
+    <line x1="495" y1="215" x2="487" y2="222" stroke="#555" stroke-width="1"/>
+    <line x1="495" y1="215" x2="495" y2="222" stroke="#555" stroke-width="1"/>
+    <line x1="495" y1="215" x2="503" y2="222" stroke="#555" stroke-width="1"/>
+    <text x="280" y="190" class="rel-label">menaungi (1:N)</text>
+  </g>
+
+  <!-- AGEN (1) ── (N) KIRIMAN: AGEN to KIRIMAN -->
+  <g>
+    <line x1="100" y1="160" x2="100" y2="420" class="rel-line"/>
+    <!-- One marker -->
+    <line x1="93" y1="170" x2="107" y2="170" stroke="#555" stroke-width="1"/>
+    <!-- Many marker at KIRIMAN top -->
+    <line x1="100" y1="410" x2="92" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="100" y1="410" x2="100" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="100" y1="410" x2="108" y2="417" stroke="#555" stroke-width="1"/>
+    <text x="106" y="290" class="rel-label">mengirim (1:N)</text>
+  </g>
+
+  <!-- PANGKALAN (1) ── (N) PELANGGAN: PANGKALAN right → PELANGGAN left -->
+  <g>
+    <line x1="640" y1="270" x2="830" y2="270" class="rel-line"/>
+    <!-- One marker at PANGKALAN -->
+    <line x1="650" y1="263" x2="650" y2="277" stroke="#555" stroke-width="1"/>
+    <!-- Many marker at PELANGGAN -->
+    <line x1="820" y1="270" x2="813" y2="262" stroke="#555" stroke-width="1"/>
+    <line x1="820" y1="270" x2="813" y2="270" stroke="#555" stroke-width="1"/>
+    <line x1="820" y1="270" x2="813" y2="278" stroke="#555" stroke-width="1"/>
+    <text x="700" y="265" class="rel-label">memiliki (1:N)</text>
+  </g>
+
+  <!-- PANGKALAN (1) ── (N) STOK: PANGKALAN bottom → STOK top -->
+  <g>
+    <line x1="540" y1="365" x2="540" y2="420" class="rel-line"/>
+    <!-- One marker -->
+    <line x1="533" y1="375" x2="547" y2="375" stroke="#555" stroke-width="1"/>
+    <!-- Many marker -->
+    <line x1="540" y1="410" x2="532" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="540" y1="410" x2="540" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="540" y1="410" x2="548" y2="417" stroke="#555" stroke-width="1"/>
+    <text x="546" y="395" class="rel-label">menyimpan (1:N)</text>
+  </g>
+
+  <!-- PANGKALAN (1) ── (N) TRANSAKSI: PANGKALAN bottom-right → TRANSAKSI top-left -->
+  <g>
+    <line x1="620" y1="365" x2="620" y2="395" class="rel-line"/>
+    <line x1="620" y1="395" x2="860" y2="395" class="rel-line"/>
+    <line x1="860" y1="395" x2="860" y2="420" class="rel-line"/>
+    <!-- One marker -->
+    <line x1="613" y1="380" x2="627" y2="380" stroke="#555" stroke-width="1"/>
+    <!-- Many marker at TRANSAKSI -->
+    <line x1="860" y1="410" x2="852" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="860" y1="410" x2="860" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="860" y1="410" x2="868" y2="417" stroke="#555" stroke-width="1"/>
+    <text x="690" y="390" class="rel-label">mencatat (1:N)</text>
+  </g>
+
+  <!-- PANGKALAN (1) ── (N) KIRIMAN: PANGKALAN bottom-left → KIRIMAN top-right -->
+  <g>
+    <line x1="460" y1="365" x2="460" y2="395" class="rel-line"/>
+    <line x1="460" y1="395" x2="200" y2="395" class="rel-line"/>
+    <line x1="200" y1="395" x2="200" y2="420" class="rel-line"/>
+    <!-- One marker -->
+    <line x1="453" y1="380" x2="467" y2="380" stroke="#555" stroke-width="1"/>
+    <!-- Many marker at KIRIMAN -->
+    <line x1="200" y1="410" x2="192" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="200" y1="410" x2="200" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="200" y1="410" x2="208" y2="417" stroke="#555" stroke-width="1"/>
+    <text x="280" y="390" class="rel-label">menerima (1:N)</text>
+  </g>
+
+  <!-- PRODUK (1) ── (N) STOK: PRODUK left-bottom → STOK right-top -->
+  <g>
+    <line x1="830" y1="170" x2="630" y2="170" class="rel-line"/>
+    <line x1="630" y1="170" x2="630" y2="420" class="rel-line"/>
+    <!-- One marker at PRODUK -->
+    <line x1="820" y1="163" x2="820" y2="177" stroke="#555" stroke-width="1"/>
+    <!-- Many marker at STOK -->
+    <line x1="630" y1="410" x2="622" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="630" y1="410" x2="630" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="630" y1="410" x2="638" y2="417" stroke="#555" stroke-width="1"/>
+    <text x="636" y="290" class="rel-label">tersimpan_di (1:N)</text>
+  </g>
+
+  <!-- PRODUK (1) ── (N) DETAIL_TRANSAKSI: PRODUK to DETAIL_TRANSAKSI (vertical down right side) -->
+  <g>
+    <line x1="1010" y1="174" x2="1010" y2="630" class="rel-line"/>
+    <!-- One marker at PRODUK -->
+    <line x1="1003" y1="184" x2="1017" y2="184" stroke="#555" stroke-width="1"/>
+    <!-- Many marker at DETAIL_TRANSAKSI -->
+    <line x1="1010" y1="620" x2="1002" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="1010" y1="620" x2="1010" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="1010" y1="620" x2="1018" y2="627" stroke="#555" stroke-width="1"/>
+    <text x="1015" y="400" class="rel-label" transform="rotate(90, 1015, 400)">termasuk (1:N)</text>
+  </g>
+
+  <!-- PRODUK (1) ── (N) DETAIL_KIRIMAN -->
+  <g>
+    <line x1="830" y1="120" x2="380" y2="120" class="rel-line"/>
+    <line x1="380" y1="120" x2="380" y2="620" class="rel-line"/>
+    <line x1="380" y1="620" x2="380" y2="630" class="rel-line"/>
+    <!-- One marker at PRODUK -->
+    <line x1="820" y1="113" x2="820" y2="127" stroke="#555" stroke-width="1"/>
+    <!-- Many marker at DETAIL_KIRIMAN -->
+    <line x1="380" y1="620" x2="372" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="380" y1="620" x2="380" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="380" y1="620" x2="388" y2="627" stroke="#555" stroke-width="1"/>
+    <text x="386" y="380" class="rel-label" transform="rotate(90, 386, 380)">termasuk (1:N)</text>
+  </g>
+
+  <!-- STOK (1) ── (N) PERGERAKAN_STOK: STOK bottom → PERGERAKAN_STOK top -->
+  <g>
+    <line x1="540" y1="544" x2="540" y2="630" class="rel-line"/>
+    <!-- One marker -->
+    <line x1="533" y1="558" x2="547" y2="558" stroke="#555" stroke-width="1"/>
+    <!-- Many marker -->
+    <line x1="540" y1="620" x2="532" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="540" y1="620" x2="540" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="540" y1="620" x2="548" y2="627" stroke="#555" stroke-width="1"/>
+    <text x="546" y="588" class="rel-label">mencatat (1:N)</text>
+  </g>
+
+  <!-- PELANGGAN (1) ── (N) TRANSAKSI: PELANGGAN bottom → TRANSAKSI top -->
+  <g>
+    <line x1="970" y1="321" x2="970" y2="420" class="rel-line"/>
+    <!-- One marker -->
+    <line x1="963" y1="335" x2="977" y2="335" stroke="#555" stroke-width="1"/>
+    <!-- Many marker -->
+    <line x1="970" y1="410" x2="962" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="970" y1="410" x2="970" y2="417" stroke="#555" stroke-width="1"/>
+    <line x1="970" y1="410" x2="978" y2="417" stroke="#555" stroke-width="1"/>
+    <text x="976" y="370" class="rel-label">melakukan (1:N)</text>
+  </g>
+
+  <!-- TRANSAKSI (1) ── (N) DETAIL_TRANSAKSI: TRANSAKSI bottom → DETAIL_TRANSAKSI top -->
+  <g>
+    <line x1="930" y1="544" x2="930" y2="630" class="rel-line"/>
+    <!-- One marker -->
+    <line x1="923" y1="558" x2="937" y2="558" stroke="#555" stroke-width="1"/>
+    <!-- Many marker -->
+    <line x1="930" y1="620" x2="922" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="930" y1="620" x2="930" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="930" y1="620" x2="938" y2="627" stroke="#555" stroke-width="1"/>
+    <text x="935" y="588" class="rel-label">berisi (1:N)</text>
+  </g>
+
+  <!-- KIRIMAN (1) ── (N) DETAIL_KIRIMAN: KIRIMAN bottom → DETAIL_KIRIMAN top -->
+  <g>
+    <line x1="220" y1="544" x2="220" y2="600" class="rel-line"/>
+    <line x1="220" y1="600" x2="325" y2="600" class="rel-line"/>
+    <line x1="325" y1="600" x2="325" y2="630" class="rel-line"/>
+    <!-- One marker -->
+    <line x1="213" y1="558" x2="227" y2="558" stroke="#555" stroke-width="1"/>
+    <!-- Many marker -->
+    <line x1="325" y1="620" x2="317" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="325" y1="620" x2="325" y2="627" stroke="#555" stroke-width="1"/>
+    <line x1="325" y1="620" x2="333" y2="627" stroke="#555" stroke-width="1"/>
+    <text x="240" y="595" class="rel-label">berisi (1:N)</text>
+  </g>
+
+  <!-- KIRIMAN (1) ── (1) PEMBAYARAN: KIRIMAN bottom-left → PEMBAYARAN top -->
+  <g>
+    <line x1="100" y1="544" x2="100" y2="600" class="rel-line"/>
+    <line x1="100" y1="600" x2="115" y2="600" class="rel-line"/>
+    <line x1="115" y1="600" x2="115" y2="630" class="rel-line"/>
+    <!-- One marker (at KIRIMAN) -->
+    <line x1="93" y1="558" x2="107" y2="558" stroke="#555" stroke-width="1"/>
+    <!-- One marker (at PEMBAYARAN, since 1:1) -->
+    <line x1="108" y1="615" x2="122" y2="615" stroke="#555" stroke-width="1"/>
+    <text x="50" y="595" class="rel-label">memiliki (1:1)</text>
+  </g>
+
+  <!-- ============ LEGEND ============ -->
+  <g>
+    <rect x="60" y="765" width="950" height="28" rx="4" fill="#f9f9f9" stroke="#999" stroke-width="0.5"/>
+    <text x="80" y="783" class="attr-text"><tspan class="attr-pk">PK</tspan> = Primary Key</text>
+    <text x="220" y="783" class="attr-text"><tspan class="attr-fk">FK</tspan> = Foreign Key</text>
+    <text x="360" y="783" class="attr-text">─┤ = "satu" (one)</text>
+    <text x="490" y="783" class="attr-text">─&#x276F; = "banyak" (crow's foot / many)</text>
+    <text x="720" y="783" class="attr-text">Notasi: Crow's Foot (Chen's modified)</text>
+  </g>
+</svg>
