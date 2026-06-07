@@ -196,7 +196,7 @@ User Interface (UI) dan User Experience (UX) merupakan dua konsep yang saling be
 
 **User Experience**, di sisi lain, merupakan konsep yang lebih luas dan menyentuh keseluruhan pengalaman pengguna ketika berinteraksi dengan sebuah produk atau sistem. Norman dan Nielsen (2016) menyatakan bahwa UX mencakup semua aspek interaksi pengguna akhir dengan perusahaan, layanan, dan produknya. UX tidak hanya tentang apa yang dilihat pengguna, tetapi juga tentang bagaimana perasaan pengguna sebelum, selama, dan setelah berinteraksi dengan sistem — apakah pengguna merasa puas, terbantu, frustrasi, atau bingung.
 
-Garrett (2010) memetakan elemen UX ke dalam lima lapisan dari yang paling abstrak hingga paling konkret, yaitu Strategy, Scope, Structure, Skeleton, dan Surface. UI menempati lapisan Surface (permukaan visual), sementara UX mencakup keseluruhan lima lapisan tersebut. Oleh karena itu dapat disimpulkan bahwa **UI adalah bagian dari UX**, dan UI yang baik adalah salah satu syarat (namun bukan satu-satunya) bagi terciptanya UX yang baik.
+Hubungan antara UI dan UX dapat dipahami sebagai dua aspek yang terintegrasi dan tidak dapat dipisahkan. Wiwesa (2021) menjelaskan bahwa UX merupakan pengalaman pengguna saat berinteraksi dengan suatu produk atau jasa, bersifat subjektif karena berdasar pada persepsi dan pemikiran pengguna, serta dipengaruhi oleh tampilan UI sebagai penghubung antara pengguna dengan sistem informasi. Dengan demikian, **UI adalah bagian dari UX**, dan UI yang baik merupakan salah satu syarat (namun bukan satu-satunya) bagi terciptanya UX yang baik. Aspek UX yang lebih luas mencakup juga arsitektur informasi, alur navigasi, kemudahan menemukan fitur, serta kesesuaian sistem dengan kebutuhan pengguna — yang seluruhnya bergantung pada perancangan terstruktur dan berorientasi pengguna.
 
 Dalam konteks perancangan aplikasi GasTrack, pendekatan UI/UX dilakukan secara terintegrasi: keputusan visual (UI) seperti pemilihan tema warna gelap dengan aksen hijau, ukuran tombol yang besar, dan tata letak sidebar yang konsisten, diambil berdasarkan pertimbangan pengalaman pengguna (UX) — yaitu pemilik Pangkalan yang sering bekerja di kondisi pencahayaan beragam, memerlukan eksekusi transaksi yang cepat, dan tidak memiliki latar belakang teknis yang tinggi.
 
@@ -367,7 +367,7 @@ Pada segmen ini, koordinasi restok, monitoring stok, dan penyelesaian pembayaran
 
 ## 2.7 Digitalisasi UMKM dan Sistem Informasi Manajemen Stok
 
-Pangkalan LPG umumnya merupakan unit usaha yang masuk dalam kategori UMKM. Digitalisasi pada UMKM didefinisikan sebagai proses adopsi teknologi digital — termasuk perangkat lunak, internet, dan layanan cloud — untuk meningkatkan efisiensi operasional, memperluas akses pasar, dan meningkatkan kemampuan pengambilan keputusan berbasis data (Kementerian Koordinator Bidang Perekonomian RI, 2021).
+Pangkalan LPG umumnya merupakan unit usaha yang masuk dalam kategori UMKM. Digitalisasi pada UMKM dipahami sebagai transformasi dari operasional manual menjadi sistem berbasis teknologi yang efisien, transparan, dan adaptif, yang mencakup pemanfaatan platform digital untuk pemasaran, pembayaran, pengelolaan stok, serta interaksi pelanggan (Sulistyani, Akhmadi, Bahri, & Fatchuroji, 2025). Lebih spesifik dalam aspek operasional, adopsi teknologi seperti aplikasi pengelolaan inventaris dan platform pengiriman berbasis digital memungkinkan UMKM untuk memantau stok secara real-time dan merencanakan pengiriman dengan lebih efisien, sehingga meningkatkan efisiensi operasional, memperluas akses pasar, serta menguatkan kemampuan pengambilan keputusan berbasis data.
 
 Salah satu bentuk digitalisasi yang paling berdampak pada UMKM dagang seperti Pangkalan LPG adalah penerapan **Sistem Informasi Manajemen Stok** (Stock Management Information System). Sistem ini berfungsi mencatat seluruh pergerakan barang masuk dan keluar dari gudang/toko, menghitung stok terkini secara otomatis, serta menghasilkan laporan untuk pengambilan keputusan operasional.
 
@@ -1043,13 +1043,9 @@ Bank Rakyat Indonesia. (2024). *BRIMOLA — Aplikasi Manajemen Online Agen & Pan
 
 Galitz, W. O. (2007). *The Essential Guide to User Interface Design: An Introduction to GUI Design Principles and Techniques* (3rd ed.). Wiley. Salinan digital (sumber tidak resmi, di-host oleh pihak ketiga): https://profagaskar.wordpress.com/wp-content/uploads/2020/03/wiley_the_essential_guide_to_user_interf.pdf
 
-Garrett, J. J. (2010). *The Elements of User Experience: User-Centered Design for the Web and Beyond* (2nd ed.). New Riders. Diagram resmi 5-plane model tersedia gratis di situs penulis: http://www.jjg.net/elements/pdf/elements.pdf
-
 Ghiffari, S. A., & Aryanto, J. (2025). Transformasi Digital Manajemen Stok UMKM Melalui Implementasi Sistem E-Inventory Mobile Real-Time. *MALCOM: Indonesian Journal of Machine Learning and Computer Science, 6*(1), 11-22. https://doi.org/10.57152/malcom.v6i1.2334. URL: https://journal.irpi.or.id/index.php/malcom/article/view/2334
 
 International Organization for Standardization. (2010). *ISO 9241-210:2010 Ergonomics of human-system interaction — Part 210: Human-centred design for interactive systems*. ISO. Diakses dari https://www.alekvs.com/wp-content/uploads/2025/06/iso-9241-210.pdf
-
-Kementerian Koordinator Bidang Perekonomian Republik Indonesia. (2021). *Pemerintah Dorong Digitalisasi UMKM hingga Pemerintah Daerah*. Publikasi No. 2937. Diakses dari https://www.ekon.go.id/publikasi/detail/2937/pemerintah-dorong-digitalisasi-umkm-hingga-pemerintah-daerah
 
 Merdeka.com. (2025). *Perbedaan antara Pangkalan dan Agen Gas LPG*. Diakses dari https://www.merdeka.com/uang/perbedaan-antara-pangkalan-dan-agen-gas-lpg-314552-mvk.html
 
@@ -1065,6 +1061,8 @@ Shneiderman, B., Plaisant, C., Cohen, M., Jacobs, S., Elmqvist, N., & Diakopoulo
 
 Sugandi, Z. A. W., & Isnaini, K. N. (2023). Perancangan Antarmuka Pengguna dan Pengalaman Pengguna dari Aplikasi Marketplace Bahan Makanan Dapur: Metode User-Centered Design. *JUSTIN (Jurnal Sistem dan Teknologi Informasi), 11*(3), 571. https://doi.org/10.26418/justin.v11i3.67793. URL: https://jurnal.untan.ac.id/index.php/justin/article/view/67793
 
+Sulistyani, N. W., Akhmadi, M. H., Bahri, S. Y., & Fatchuroji, A. (2025). *Buku Referensi Membangun UMKM Berdaya Saing: Inovasi, Kreativitas, dan Teknologi*. Medan: PT Media Penerbit Indonesia. ISBN 978-634-7305-01-5. URL: http://repository.mediapenerbitindonesia.com/573/
+
 Tempo.co. (2024). *47.495 Pangkalan LPG Subsidi Milik Pertamina untuk Layani Banten, Jawa Barat dan Jakarta*. Bisnis Tempo, 23 September 2024. Diakses dari https://bisnis.tempo.co/read/1919992/47-495-pangkalan-lpg-subsidi-milik-pertamina-untuk-layani-banten-jawa-barat-dan-jakarta
 
 Tempo.co. (2025). *KESDM dan Pertamina Sosialisasikan Penataan Rantai Pasok LPG 3 Kg*. Info Tempo, 5 Februari 2025. Diakses dari https://www.tempo.co/info-tempo/kesdm-dan-pertamina-sosialisasikan-penataan-rantai-pasok-lpg-3-kg--1203082
@@ -1072,6 +1070,8 @@ Tempo.co. (2025). *KESDM dan Pertamina Sosialisasikan Penataan Rantai Pasok LPG 
 Tirto.id. (2025). *KESDM & Pertamina Sosialisasikan Penataan Rantai Pasok LPG 3 Kg*. 5 Februari 2025. Diakses dari https://tirto.id/kesdm-pertamina-sosialisasikan-penataan-rantai-pasok-lpg-3-kg-g7Zn
 
 Tribunnews. (2025). *Syarat dan Cara Daftar Sub Pangkalan Gas LPG 3 Kg Lewat Aplikasi MAP Pertamina, Siapkan Data Ini*. 5 Februari 2025. Diakses dari https://www.tribunnews.com/bisnis/2025/02/05/syarat-dan-cara-daftar-sub-pangkalan-gas-lpg-3-kg-lewat-aplikasi-map-pertamina-siapkan-data-ini
+
+Wiwesa, N. R. (2021). User Interface dan User Experience untuk Mengelola Kepuasan Pelanggan. *Jurnal Sosial Humaniora Terapan, 3*(2), Article 2. Program Pendidikan Vokasi, Universitas Indonesia. P-ISSN: 2622-1764, E-ISSN: 2622-1152. URL: https://scholarhub.ui.ac.id/jsht/vol3/iss2/2/
 
 ---
 
