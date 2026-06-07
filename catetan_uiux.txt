@@ -1,13 +1,1 @@
-1.5 Batasan Masalah
-
-{"Garrett (2010) memetakan elemen UX ke dalam lima lapisan dari yang paling abstrak hingga paling konkret, yaitu Strategy, Scope, Structure, Skeleton, dan Surface. UI menempati lapisan Surface (permukaan visual), sementara UX mencakup keseluruhan lima lapisan tersebut. Oleh karena itu dapat disimpulkan bahwa UI adalah bagian dari UX, dan UI yang baik adalah salah satu syarat (namun bukan satu-satunya) bagi terciptanya UX yang baik."
-
-"Garrett, J. J. (2010). The Elements of User Experience: User-Centered Design for the Web and Beyond (2nd ed.). New Riders. Diagram resmi 5-plane model tersedia gratis di situs penulis: http://www.jjg.net/elements/pdf/elements.pdf"
-
-ini kurang sesuai, tolong cari paper/jurnal yang memang bisa di akses saja yang mirip dengan ini 
-}
-
-{Kementerian Koordinator Bidang Perekonomian Republik Indonesia. (2021). Pemerintah Dorong Digitalisasi UMKM hingga Pemerintah Daerah. Publikasi No. 2937. Diakses dari https://www.ekon.go.id/publikasi/detail/2937/pemerintah-dorong-digitalisasi-umkm-hingga-pemerintah-daerah
-
-ini tidak akurat
-}
+USECASE DIAGRAM, seharusnya Agen tidak cuma konfirmasi, agen juga bisa lihat stok pangkalannya(harus di perjelas/ditambahkan baik dari penjelasan dan gambar nya). kemudian ini ngaruh juga ke bagian ERD dan gambar nya.
